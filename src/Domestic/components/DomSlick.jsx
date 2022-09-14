@@ -36,7 +36,8 @@ const DomSlick = () => {
         }
         getImage();
     }, []);
-
+    
+    //axios
     useEffect(() => {
         async function changeImage() {
             try {
