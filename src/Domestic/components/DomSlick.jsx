@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
+import Styles from "../css/style.css";
 const DomSlick = () => {
   const settings = {
     infinite: true,
@@ -85,24 +86,33 @@ const DomSlick = () => {
             //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
             return (
               v.firstimage && (
-                <div className="d-flex justify-content-around flex-column ml-5 pl-5">
-                  <a href="#">
-                    <img
-                      object-fit="fill"
-                      src={v.firstimage}
-                      width="380px"
-                      height="500px"
-                      alt="이미지"
-                    />
-                  </a>
+                <div
+                  className="d-flex justify-content-around flex-column ml-5 pl-5"
+                  id="testfont"
+                  style={{
+                    padding: "500px",
+                  }}
+                >
+                  <img
+                    object-fit="fill"
+                    src={v.firstimage}
+                    width="380px"
+                    height="500px"
+                    alt="이미지"
+                  />
 
                   <div style={{ width: "380px" }}>
-                    <div className="team card position-relative border-0 mb-5">
+                    <div className="team card position-relative border-start mb-5">
                       <div className="card-body text-center p-0">
-                        <div className="d-flex flex-column justify-content-center bg-white">
-                          <h5 className="font-weight-bold">{v.title}</h5>
-                          <span>{v.addr1}</span>
-                          <span>{v.addr2}</span>
+                        <div className="d-flex flex-column justify-content-center bg-white flex-wrap">
+                          <h5 className="font-weight-bold fs-2 mb-0">
+                            {v.title}
+                          </h5>
+                          <span className="text-secondary fs-5 mb-2">
+                            {v.eventstartdate} ~ {v.eventenddate}
+                          </span>
+                          <span className="text-secondary">{v.addr1}</span>
+                          <span className="text-secondary">{v.addr2}</span>
                         </div>
                       </div>
                     </div>

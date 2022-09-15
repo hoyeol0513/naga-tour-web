@@ -186,7 +186,7 @@ const DomMain = () => {
           </div>
           <div className="row">
             <div className="col-md-4 mb-5">
-              <div className="bg-secondary">
+              <div className="bg-white">
                 <div className="text-center p-4">
                   <h1 className="display-4 mb-0">
                     <small
@@ -219,7 +219,7 @@ const DomMain = () => {
               </div>
             </div>
             <div className="col-md-4 mb-5">
-              <div className="bg-secondary">
+              <div className="bg-white">
                 <div className="text-center p-4">
                   <h1 className="display-4 mb-0">
                     <small
@@ -252,7 +252,7 @@ const DomMain = () => {
               </div>
             </div>
             <div className="col-md-4 mb-5">
-              <div className="bg-secondary">
+              <div className="bg-white">
                 <div className="text-center p-4">
                   <h1 className="display-4 mb-0">
                     <small
