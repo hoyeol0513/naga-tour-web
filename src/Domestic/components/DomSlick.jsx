@@ -99,12 +99,13 @@ const DomSlick = () => {
                     width="380px"
                     height="500px"
                     alt="이미지"
+                    className="shadow-lg bg-body rounded"
                   />
 
                   <div style={{ width: "380px" }}>
                     <div className="team card position-relative border-start mb-5">
                       <div className="card-body text-center p-0">
-                        <div className="d-flex flex-column justify-content-center bg-white flex-wrap">
+                        <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow-lg bg-body rounded ">
                           <h5 className="font-weight-bold fs-2 mb-0">
                             {v.title}
                           </h5>
