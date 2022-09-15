@@ -81,13 +81,11 @@ const DomMain = () => {
       <div
         className="jumbotron jumbotron-fluid mb-5"
         style={{
-          backgroundImage:
-            "url(https://mblogthumb-phinf.pstatic.net/MjAxNzA2MTlfNDgg/MDAxNDk3ODAwMTMzNDIx.GF4RP0mOJpPcemv2CX2cA8b08L23eJ0VFpIKqpAw7jIg.G2-7h3-G5PArRS2WO9MCvAvzFibyHi0M0KJb8r9hTeog.JPEG.kusshand_official/3.jpg?type=w800)",
           backgroundSize: "100%",
         }}
       >
         <div className="container text-center py-5">
-          <h1 className="text-primary mb-4">국내</h1>
+          <h1 className="text-white mb-4">국내</h1>
 
           <div className="mx-auto">
             <div className="input-group">
@@ -177,52 +175,7 @@ const DomMain = () => {
           </div>
         </div>
       </div>
-      <div className="container-fluid bg-secondary my-5">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-5">
-              <img className="img-fluid w-100" alt="" />
-            </div>
-            <div className="col-lg-7 py-5 py-lg-0">
-              <h6 className="text-primary text-uppercase font-weight-bold">
-                Why Choose Us
-              </h6>
-              <h1 className="mb-4">
-                Faster, Safe and Trusted Logistics Services
-              </h1>
-              <p className="mb-4">
-                Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam
-                dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr
-                stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat
-                sed diam duo
-              </p>
-              <ul className="list-inline">
-                <li>
-                  <h6>
-                    <i className="far fa-dot-circle text-primary mr-3"></i>Best
-                    In Industry
-                  </h6>
-                </li>
-                <li>
-                  <h6>
-                    <i className="far fa-dot-circle text-primary mr-3"></i>
-                    Emergency Services
-                  </h6>
-                </li>
-                <li>
-                  <h6>
-                    <i className="far fa-dot-circle text-primary mr-3"></i>24/7
-                    Customer Support
-                  </h6>
-                </li>
-              </ul>
-              <Link to="/" className="btn btn-primary mt-3 py-2 px-4">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div className="container-fluid pt-5">
         <div className="container">
           <div className="text-center pb-2">
