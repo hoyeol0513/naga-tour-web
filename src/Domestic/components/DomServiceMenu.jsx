@@ -1,0 +1,142 @@
+import React from "react";
+
+const DomServiceMenu = () => {
+  return (
+    <div>
+      <div className="container-fluid pt-5 border border-top-0">
+        <div className="container">
+          <div className="text-center pb-2">
+            <h6 className="text-primary text-uppercase mb-0" id="KOTRALEAP">
+              Our Services
+            </h6>
+            <h1 className="mb-4" id="KOTRALEAP">
+              제공 서비스
+            </h1>
+          </div>
+          <div className="row pb-3">
+            <div className="col-lg-3 col-md-6 text-center mb-5">
+              <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                <i class="fa fa-2x text-dark fa-solid fa-car pr-3"></i>
+                <h6 className="text-white font-weight-medium m-0">교통</h6>
+              </div>
+              <p>
+                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
+                diam sea est diam
+              </p>
+              <a className="border-bottom text-decoration-none" href="/">
+                이동하기
+              </a>
+            </div>
+            <div className="col-lg-3 col-md-6 text-center mb-5">
+              <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                <i class="fa fa-2x text-dark pr-3 fa-solid fa-hotel"></i>
+                <h6 className="text-white font-weight-medium m-0">숙소</h6>
+              </div>
+              <p>
+                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
+                diam sea est diam
+              </p>
+              <a className="border-bottom text-decoration-none" href="/">
+                이동하기
+              </a>
+            </div>
+            <div className="col-lg-3 col-md-6 text-center mb-5">
+              <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                <i class="fa fa-2x text-dark pr-3 fa-sharp fa-solid fa-calendar-days"></i>
+                <h6 className="text-white font-weight-medium m-0">축제</h6>
+              </div>
+              <p>
+                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
+                diam sea est diam
+              </p>
+              <a className="border-bottom text-decoration-none" href="/">
+                이동하기
+              </a>
+            </div>
+            <div className="col-lg-3 col-md-6 text-center mb-5">
+              <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                <i className="fa fa-2x fa-store text-dark pr-3"></i>
+                <h6 className="text-white font-weight-medium m-0">식당</h6>
+              </div>
+              <p>
+                Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet
+                diam sea est diam
+              </p>
+              <a className="border-bottom text-decoration-none" href="/">
+                이동하기
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DomServiceMenu;
+<div className="container-fluid pt-5 border border-top-0">
+  <div className="container">
+    <div className="text-center pb-2">
+      <h6 className="text-primary text-uppercase mb-0" id="KOTRALEAP">
+        Our Services
+      </h6>
+      <h1 className="mb-4" id="KOTRALEAP">
+        제공 서비스
+      </h1>
+    </div>
+    <div className="row pb-3">
+      <div className="col-lg-3 col-md-6 text-center mb-5">
+        <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+          <i class="fa fa-2x text-dark fa-solid fa-car pr-3"></i>
+          <h6 className="text-white font-weight-medium m-0">교통</h6>
+        </div>
+        <p>
+          Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam
+          sea est diam
+        </p>
+        <a className="border-bottom text-decoration-none" href="/">
+          이동하기
+        </a>
+      </div>
+      <div className="col-lg-3 col-md-6 text-center mb-5">
+        <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+          <i class="fa fa-2x text-dark pr-3 fa-solid fa-hotel"></i>
+          <h6 className="text-white font-weight-medium m-0">숙소</h6>
+        </div>
+        <p>
+          Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam
+          sea est diam
+        </p>
+        <a className="border-bottom text-decoration-none" href="/">
+          이동하기
+        </a>
+      </div>
+      <div className="col-lg-3 col-md-6 text-center mb-5">
+        <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+          <i class="fa fa-2x text-dark pr-3 fa-sharp fa-solid fa-calendar-days"></i>
+          <h6 className="text-white font-weight-medium m-0">축제</h6>
+        </div>
+        <p>
+          Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam
+          sea est diam
+        </p>
+        <a className="border-bottom text-decoration-none" href="/">
+          이동하기
+        </a>
+      </div>
+      <div className="col-lg-3 col-md-6 text-center mb-5">
+        <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+          <i className="fa fa-2x fa-store text-dark pr-3"></i>
+          <h6 className="text-white font-weight-medium m-0">식당</h6>
+        </div>
+        <p>
+          Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam
+          sea est diam
+        </p>
+        <a className="border-bottom text-decoration-none" href="/">
+          이동하기
+        </a>
+      </div>
+    </div>
+  </div>
+</div>;
