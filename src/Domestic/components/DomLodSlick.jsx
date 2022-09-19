@@ -5,15 +5,18 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-const DomFestivalSlick = () => {
+const DomLodSlick = () => {
   const settings = {
     infinite: true,
-    speed: 5000,
-    slidesToShow: 3,
+    speed: 100,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 9000,
+    fade: true,
+    cssEase: "linear",
     centerMode: true,
+    centerPadding: "200px",
   };
 
   const [imageno, setImageNo] = useState(0);
@@ -28,7 +31,7 @@ const DomFestivalSlick = () => {
     async function getImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}"`
+          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=1&hanOk=0`
         );
         setImageNo(randomNumberInRange(response.data.response.body.totalCount));
       } catch (error) {
@@ -43,7 +46,7 @@ const DomFestivalSlick = () => {
     async function changeImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}`
+          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=1&hanOk=0`
         );
         console.log(`imageno는 : `, imageno);
         console.log(response.data.response.body.items.item);
@@ -61,7 +64,7 @@ const DomFestivalSlick = () => {
   }
 
   return (
-    <div>
+    <div className="border border-top-0">
       <DomMetaTag />
       <Helmet>
         <link
@@ -80,15 +83,15 @@ const DomFestivalSlick = () => {
         ></script>
       </Helmet>
 
-      <div className="border border-top-0">
+      <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
-          Event information
+          Accommodation information
         </h6>
         <h1
           className="text-dark font-weight-bold text-center pb-3"
           id="KOTRALEAP"
         >
-          행사 정보
+          숙소 정보
         </h1>
         <Slider {...settings}>
           {festival.map((v, index) => {
@@ -96,7 +99,7 @@ const DomFestivalSlick = () => {
             return (
               v.firstimage && (
                 <div
-                  className="d-flex justify-content-around flex-column ml-5 pl-5"
+                  className="d-flex flex flex-row text-center"
                   id="KOTRALEAP"
                   style={{
                     padding: "500px",
@@ -105,24 +108,27 @@ const DomFestivalSlick = () => {
                   <img
                     object-fit="fill"
                     src={v.firstimage}
-                    width="380px"
-                    height="500px"
+                    width="720px"
+                    height="480px"
                     alt="이미지"
-                    className="shadow-lg bg-body "
+                    className="shadow-lg bg-body rounded"
                   />
 
-                  <div style={{ width: "380px" }}>
-                    <div className="team card position-relative border-start mb-5">
-                      <div className="card-body text-center p-0">
-                        <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body  ">
-                          <h5 className="font-weight-bold fs-2 mb-0">
-                            {v.title}
-                          </h5>
-                          <span className="text-secondary fs-5 mb-2">
-                            {v.eventstartdate} ~ {v.eventenddate}
-                          </span>
+                  <div>
+                    <div className="team card position-relative border-start mb-5 ">
+                      <div className="card-body text-center p-0 ">
+                        <div
+                          className=" bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
+                          style={{ width: "720px", height: "480px" }}
+                        >
+                          <h1 className="font-weight-bold mb-0">{v.title}</h1>
+
                           <span className="text-secondary">{v.addr1}</span>
                           <span className="text-secondary">{v.addr2}</span>
+
+                          <a href="# " alt="이동하기" className="text-primary">
+                            바로가기
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -137,4 +143,4 @@ const DomFestivalSlick = () => {
   );
 };
 
-export default DomFestivalSlick;
+export default DomLodSlick;
