@@ -106,10 +106,10 @@ const DomMain = () => {
           </div>
         </div>
       </div>
-      <DomRentSlick />
+
       <DomFestivalSlick />
       <DomLodSlick />
-
+      <DomRentSlick />
       <DomServiceMenu />
       <div className="container-fluid pt-5">
         <div className="container">
