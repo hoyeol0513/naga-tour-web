@@ -48,19 +48,19 @@ const DomRentSlick = () => {
 
       <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
-          Rent information
+          Event information
         </h6>
         <h1
           className="text-dark font-weight-bold text-center pb-3"
           id="KOTRALEAP"
         >
-          렌트 정보
+          행사 정보
         </h1>
         <Slider {...settings}>
           {Rent.records.map((v, index) => {
             //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
             return (
-              v.차고지도로명주소 && (
+              (v.소재지도로명주소 || v.소재지지번주소) && (
                 <div
                   className="d-flex flex flex-column text-center"
                   id="KOTRALEAP"
@@ -79,9 +79,16 @@ const DomRentSlick = () => {
                             {v.eventstartdate} ~ {v.eventenddate}
                           </span>
                           <span className="text-secondary">{v.addr1}</span> */}
-                          <span className="text-secondary">
-                            {v.차고지도로명주소}
-                          </span>
+                          {v.소재지도로명주소 !== null ? (
+                            <span className="text-secondary">
+                              {v.소재지도로명주소}
+                            </span>
+                          ) : (
+                            <span className="text-secondary">
+                              {v.소재지지번주소}
+                            </span>
+                          )}
+
                           <span className="text-secondary">
                             {v.평일운영시작시각} ~ {v.평일운영종료시각}
                           </span>
