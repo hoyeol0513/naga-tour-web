@@ -16,7 +16,6 @@ const DomLodSlick = () => {
     fade: true,
     cssEase: "linear",
     centerMode: true,
-    centerPadding: "200px",
   };
 
   const [imageno, setImageNo] = useState(0);
@@ -66,22 +65,6 @@ const DomLodSlick = () => {
   return (
     <div className="border border-top-0">
       <DomMetaTag />
-      <Helmet>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-        />
-        <script
-          type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-        ></script>
-      </Helmet>
 
       <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">

@@ -22,9 +22,24 @@ const DomFestivalSlick = () => {
 
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
-  const startday = "20220913";
 
+  const current = new Date();
+
+  const month =
+    `${current.getMonth() + 1}` <= 9
+      ? "0" + `${current.getMonth() + 1}`
+      : `${current.getMonth() + 1}`;
+
+  const day =
+    `${current.getDate()}` <= 9
+      ? "0" + `${current.getDate() + 1}`
+      : `${current.getDate() + 1}`;
+
+  const date = `${current.getFullYear()}` + month + day;
+
+  const startday = date;
   useEffect(() => {
+    console.log(date);
     async function getImage() {
       try {
         const response = await axios.get(
@@ -63,22 +78,6 @@ const DomFestivalSlick = () => {
   return (
     <div>
       <DomMetaTag />
-      <Helmet>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-        />
-        <script
-          type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-        ></script>
-      </Helmet>
 
       <div className="border border-top-0">
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
