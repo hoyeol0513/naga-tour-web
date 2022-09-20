@@ -66,7 +66,10 @@ const DomLodSlick = () => {
     <div className="border border-top-0">
       <DomMetaTag />
 
-      <div>
+      <div
+        className=""
+        style={{ width: "1280px", marginLeft: "auto", marginRight: "auto" }}
+      >
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
           Accommodation information
         </h6>
@@ -84,16 +87,14 @@ const DomLodSlick = () => {
                 <div
                   className="d-flex flex flex-row text-center"
                   id="KOTRALEAP"
-                  style={{
-                    padding: "500px",
-                  }}
                 >
                   <img
                     object-fit="fill"
                     src={v.firstimage}
-                    width="720px"
+                    width="480px"
                     height="480px"
                     alt="이미지"
+                    background-size="cover"
                     className="shadow-lg bg-body rounded"
                   />
 
@@ -102,7 +103,10 @@ const DomLodSlick = () => {
                       <div className="card-body text-center p-0 ">
                         <div
                           className=" bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
-                          style={{ width: "720px", height: "480px" }}
+                          style={{
+                            width: "720px",
+                            height: "480px",
+                          }}
                         >
                           <h1 className="font-weight-bold mb-0">{v.title}</h1>
 
