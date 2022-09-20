@@ -40,7 +40,6 @@ const DomRentSlick = () => {
   return (
     <div>
       <DomMetaTag />
-
       <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
           Event information
@@ -51,6 +50,7 @@ const DomRentSlick = () => {
         >
           행사 정보
         </h1>
+        {loading ? <div className="text-center">loading...</div> : 
         <Slider {...settings}>
           {rent.map((v, index) => {
             //렌트카 지역을 위한 지역 설정
@@ -58,7 +58,7 @@ const DomRentSlick = () => {
             
             //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
             return (
-              (v.rdnmadr || v.lnmadr) && (v.rdnmadr.split(" ")[0] === "전라남도" || v.lnmadr.split(" ")[0] === "전라남도")&& (                  
+              (v.rdnmadr || v.lnmadr) && (v.rdnmadr.split(" ")[0] === "부산광역시" || v.lnmadr.split(" ")[0] === "부산광역시")&& (                  
                   <div
                     className="d-flex flex flex-column text-center"
                     id="KOTRALEAP"
@@ -103,6 +103,7 @@ const DomRentSlick = () => {
             );
           })}
         </Slider>
+        }
       </div>
     </div>
   );
