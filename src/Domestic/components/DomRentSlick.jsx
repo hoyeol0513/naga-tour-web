@@ -21,7 +21,6 @@ const DomRentSlick = () => {
 
   const [loading, setLoading] = useState(true);
   const [rent, setRent] = useState([]);
-  const [no, setNo] = useState(0);
 
   useEffect(() => {
     async function setData() {
@@ -54,35 +53,53 @@ const DomRentSlick = () => {
         </h1>
         <Slider {...settings}>
           {rent.map((v, index) => {
+            //렌트카 지역을 위한 지역 설정
+            let area = (v.rdnmadr !== null ? v.rdnmadr : v.lnmadr).split(" ")[0];
+            
             //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
             return (
-              <div
-                className="d-flex flex flex-row text-center"
-                id="KOTRALEAP"
-                style={{
-                  padding: "500px",
-                }}
-              >
-                <div>
-                  <div className="team card position-relative border-start mb-5 ">
-                    <div className="card-body text-center p-0 ">
-                      <div
-                        className=" bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
-                        style={{ width: "720px", height: "480px" }}
-                      >
-                        <h1 className="font-weight-bold mb-0">{v.entrpsNm}</h1>
+              (v.rdnmadr || v.lnmadr) && (v.rdnmadr.split(" ")[0] === "전라남도" || v.lnmadr.split(" ")[0] === "전라남도")&& (                  
+                  <div
+                    className="d-flex flex flex-column text-center"
+                    id="KOTRALEAP"
+                    style={{
+                      padding: "500px",
+                    }}
+                  >
+                    <div style={{width:"1024px" , marginLeft:"auto", marginRight:"auto"}}>
+                      <div className="team card position-relative border-start mb-5">
+                        <div className="card-body text-center p-0">
+                          <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body rounded ">
+                            <h5 className="font-weight-bold fs-2 mb-0">
+                              {v.entrpsNm}
+                            </h5>
+                            {/* <span className="text-secondary fs-5 mb-2">
+                              {v.eventstartdate} ~ {v.eventenddate}
+                            </span>
+                            <span className="text-secondary">{v.addr1}</span> */}
+                            {v.rdnmadr !== null ? (
+                              <span className="text-secondary">
+                                {v.rdnmadr}
+                              </span>
+                            ) : (
+                              <span className="text-secondary">
+                                {v.lnmadr}
+                              </span>
+                            )}
 
-                        <span className="text-secondary">{v.garageLnmadr}</span>
-                        <span className="text-secondary">{v.rdnmadr}</span>
-
-                        <a href="# " alt="이동하기" className="text-primary">
-                          바로가기
-                        </a>
+                            <span className="text-secondary">
+                              {v.weekdayOperOpenHhmm} ~ {v.weekdayOperColseHhmm}
+                            </span>
+                            <span className="text-secondary">
+                              <i class="fi fi-sr-phone-call mx-2 "></i>
+                              {v.phoneNumber}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+              )
             );
           })}
         </Slider>
