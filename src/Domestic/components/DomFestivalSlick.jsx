@@ -89,6 +89,7 @@ const DomFestivalSlick = () => {
         >
           행사 정보
         </h1>
+        {loading ? <div className="text-center">loading...</div> : 
         <Slider {...settings}>
           {festival.map((v, index) => {
             //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
@@ -131,6 +132,7 @@ const DomFestivalSlick = () => {
             );
           })}
         </Slider>
+        }
       </div>
     </div>
   );
