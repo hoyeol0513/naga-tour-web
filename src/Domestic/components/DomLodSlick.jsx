@@ -112,7 +112,6 @@ const DomLodSlick = () => {
                             }}
                           >
                             <h1 className="font-weight-bold mb-0">{v.title}</h1>
-
                             <span className="text-secondary">
                               <i class="fi fi-sr-marker mx-1 "></i>
                               {v.addr1} {v.addr2}
@@ -124,6 +123,7 @@ const DomLodSlick = () => {
                               alt="이동하기"
                               className="text-primary"
                               target="_blank"
+
                             >
                               바로가기
                             </a>
