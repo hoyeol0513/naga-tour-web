@@ -75,10 +75,9 @@ const DomFestivalSlick = ({ CityCode }) => {
     async function changeImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&eventStartDate=${startday}`
+          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=$0&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&eventStartDate=${startday}`
         );
         setFestival(response.data.response.body.items.item);
-        console.log(festival);
       } catch (error) {
         console.log(error);
       }
@@ -93,7 +92,7 @@ const DomFestivalSlick = ({ CityCode }) => {
   return (
     <div>
       <DomMetaTag />
-      aaa
+
       <div className="border border-top-0">
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
           Event information

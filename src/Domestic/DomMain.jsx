@@ -139,10 +139,11 @@ const DomMain = () => {
               {v.name}
             </button>
           ))}
+          <div>{city}의 지역정보 입니다.</div>
         </ul>
       </nav>
       <DomFestivalSlick CityCode={cityCode} />
-      <DomLodSlick city={city} />
+      <DomLodSlick CityCode={cityCode} />
       <DomRentSlick city={city} />
 
       <div className="container-fluid pt-5">
