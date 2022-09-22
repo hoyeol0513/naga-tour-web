@@ -79,54 +79,61 @@ const DomLodSlick = () => {
         >
           숙소 정보
         </h1>
-        {loading ? <div className="text-center">loading...</div> : 
-        <Slider {...settings}>
-          {festival.map((v, index) => {
-            //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
-            return (
-              v.firstimage && (
-                <div
-                  className="d-flex flex flex-row text-center"
-                  id="KOTRALEAP"
-                >
-                  <img
-                    object-fit="fill"
-                    src={v.firstimage}
-                    width="480px"
-                    height="480px"
-                    alt="이미지"
-                    background-size="cover"
-                    className="shadow-lg bg-body rounded"
-                  />
+        {loading ? (
+          <div className="text-center">loading...</div>
+        ) : (
+          <Slider {...settings}>
+            {festival.map((v, index) => {
+              //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
+              return (
+                v.firstimage && (
+                  <div
+                    className="d-flex flex flex-row text-center"
+                    id="KOTRALEAP"
+                  >
+                    <img
+                      object-fit="fill"
+                      src={v.firstimage}
+                      width="480px"
+                      height="480px"
+                      alt="이미지"
+                      background-size="cover"
+                      className="shadow-lg bg-body rounded"
+                    />
 
-                  <div>
-                    <div className="team card position-relative border-start mb-5 ">
-                      <div className="card-body text-center p-0 ">
-                        <div
-                          className=" bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
-                          style={{
-                            width: "720px",
-                            height: "480px",
-                          }}
-                        >
-                          <h1 className="font-weight-bold mb-0">{v.title}</h1>
+                    <div>
+                      <div className="team card position-relative border-start mb-5 ">
+                        <div className="card-body text-center p-0 ">
+                          <div
+                            className=" bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
+                            style={{
+                              width: "720px",
+                              height: "480px",
+                            }}
+                          >
+                            <h1 className="font-weight-bold mb-0">{v.title}</h1>
 
-                          <span className="text-secondary">{v.addr1}</span>
-                          <span className="text-secondary">{v.addr2}</span>
+                            <span className="text-secondary">{v.addr1}</span>
+                            <span className="text-secondary">{v.addr2}</span>
 
-                          <a href="# " alt="이동하기" className="text-primary">
-                            바로가기
-                          </a>
+                            <a
+                              href={`https://www.google.com/search?q=${v.title}`}
+                              target="_blank"
+                              alt="이동하기"
+                              className="text-primary"
+                            >
+                              바로가기
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )
-            );
-          })}
-        </Slider>
-        }
+                )
+              );
+            })}
+          </Slider>
+        )}
       </div>
     </div>
   );
