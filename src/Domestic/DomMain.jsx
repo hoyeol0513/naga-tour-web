@@ -25,7 +25,7 @@ const DomMain = () => {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/areaCode?serviceKey=${servicekey}&numOfRows=17&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`
         );
-        console.log(response.data.response.body.items.item);
+
         setSi(response.data.response.body.items.item);
       } catch (error) {
         console.log(error);
@@ -129,6 +129,7 @@ const DomMain = () => {
         >
           {si.map((v, index) => (
             <button
+              key={index}
               type="button"
               className="btn btn-light"
               onClick={() => {
@@ -144,7 +145,7 @@ const DomMain = () => {
       </nav>
       <DomFestivalSlick CityCode={cityCode} />
       <DomLodSlick CityCode={cityCode} />
-      <DomRentSlick city={city} />
+      <DomRentSlick CityName={city} />
 
       <div className="container-fluid pt-5">
         <div className="container">

@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
 
-const DomRentSlick = ({ city }) => {
+const DomRentSlick = ({ CityName }) => {
   const settings = {
     infinite: true,
     speed: 100,
@@ -28,7 +28,7 @@ const DomRentSlick = ({ city }) => {
         const response = await axios.get(
           `http://api.data.go.kr/openapi/tn_pubr_public_car_rental_api?serviceKey=LC%2BRTwuYWh6OgZC1AKhzWtyfTV%2B6Lc1qQZ5l05usRdo4nEetPUt44I2K6dW877MiDjxUj00bsNjD223dti6BwQ%3D%3D&pageNo=0&numOfRows=5000&type=json`
         );
-        console.log(response.data.response.body.items);
+
         setRent(response.data.response.body.items);
         setLoading(false);
       } catch (error) {
@@ -37,13 +37,12 @@ const DomRentSlick = ({ city }) => {
     }
     setData();
   }, []);
-
   return (
     <div>
       <DomMetaTag />
       <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
-          Rent Car information
+          About Rent Car
         </h6>
         <h1
           className="text-dark font-weight-bold text-center pb-3"
@@ -51,23 +50,23 @@ const DomRentSlick = ({ city }) => {
         >
           렌트카 정보
         </h1>
-
         {loading ? (
           <div className="text-center">loading...</div>
         ) : (
           <Slider {...settings}>
             {rent.map((v, index) => {
               //렌트카 지역을 위한 지역 설정
-              let area = (v.rdnmadr !== null ? v.rdnmadr : v.lnmadr).split(
+              let area = (v.rdnmadr !== "" ? v.rdnmadr : v.lnmadr).split(
                 " "
               )[0];
 
               //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
               return (
                 (v.rdnmadr || v.lnmadr) &&
-                (v.rdnmadr.split(" ")[0].startsWith(city) ||
-                  v.lnmadr.split(" ")[0].startsWith(city)) && (
+                (v.rdnmadr.split(" ")[0].startsWith(CityName) ||
+                  v.lnmadr.split(" ")[0].startsWith(CityName)) && (
                   <div
+                    key={index}
                     className="d-flex flex flex-column text-center"
                     id="KOTRALEAP"
                     style={{
@@ -84,17 +83,22 @@ const DomRentSlick = ({ city }) => {
                       <div className="team card position-relative border-start mb-5">
                         <div className="card-body text-center p-0">
                           <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body rounded ">
-                            <h5 className="font-weight-bold fs-2 mb-2">
+                            <h5 className="font-weight-bold fs-2 mb-0">
                               {v.entrpsNm}
                             </h5>
-
-                            <span className="text-secondary">
-                              <i class="fi fi-sr-marker mx-1 "></i>
-                              {v.rdnmadr !== "" ? v.rdnmadr : v.lnmadr}
+                            {/* <span className="text-secondary fs-5 mb-2">
+                              {v.eventstartdate} ~ {v.eventenddate}
                             </span>
+                            <span className="text-secondary">{v.addr1}</span> */}
+                            {v.rdnmadr !== "" ? (
+                              <span className="text-secondary">
+                                {v.rdnmadr}
+                              </span>
+                            ) : (
+                              <span className="text-secondary">{v.lnmadr}</span>
+                            )}
 
                             <span className="text-secondary">
-                              <i class="fi fi-ss-time-quarter-to mx-2"></i>
                               {v.weekdayOperOpenHhmm} ~ {v.weekdayOperColseHhmm}
                             </span>
                             <span className="text-secondary">
