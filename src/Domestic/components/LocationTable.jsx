@@ -1,37 +1,23 @@
 import React from "react";
 
-const LocationTable = () => {
+const LocationTable = ({si}) => {
   return (
     <div>
       <nav style={{ marginTop: "100px", textAlign: "center" }}>
         <ul
           style={{
-            backgroundColor: "#afafaf",
             display: "inline-block",
             padding: "0 20px",
             borderRadius: "10px",
           }}
         >
-          <li style={{ display: "inline-block", width: "180px" }}>
+          {si.map((v, index)=>
+          <button type="button" className="btn btn-light">
             <a style={{ color: "inherit", textDecoration: "none" }} href="#">
-              서울
+              {v.name}
             </a>
-          </li>
-          <li style={{ display: "inline-block", width: "180px" }}>
-            <a style={{ color: "inherit", textDecoration: "none" }} href="#">
-              경기
-            </a>
-          </li>
-          <li style={{ display: "inline-block", width: "180px" }}>
-            <a style={{ color: "inherit", textDecoration: "none" }} href="#">
-              대전
-            </a>
-          </li>
-          <li style={{ display: "inline-block", width: "180px" }}>
-            <a style={{ color: "inherit", textDecoration: "none" }} href="#">
-              부산
-            </a>
-          </li>
+          </button>
+          )}
         </ul>
       </nav>
     </div>

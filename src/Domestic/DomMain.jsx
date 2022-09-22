@@ -13,6 +13,23 @@ import DomLodSlick from "./components/DomLodSlick";
 import DomServiceMenu from "./components/DomServiceMenu";
 import DomRentSlick from "./components/DomRentSlick";
 const DomMain = () => {
+  const [si, setSi] = useState([]);
+  const servicekey =
+  "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
+  useEffect(() => {
+    async function getSi() {
+      try {
+        const response = await axios.get(
+          `https://apis.data.go.kr/B551011/KorService/areaCode?serviceKey=${servicekey}&numOfRows=17&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`
+        );
+        console.log(response.data.response.body.items.item)
+        setSi(response.data.response.body.items.item);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getSi();
+  }, []);
   return (
     <div>
       <DomMetaTag />
@@ -109,7 +126,7 @@ const DomMain = () => {
 
       <DomFestivalSlick />
       <DomLodSlick />
-      <DomRentSlick />
+      <DomRentSlick si={si} />
       <DomServiceMenu />
       <div className="container-fluid pt-5">
         <div className="container">

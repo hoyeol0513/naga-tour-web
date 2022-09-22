@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-const DomLodSlick = () => {
+const DomLodSlick = ( {si, setSi} ) => {
   const settings = {
     infinite: true,
     speed: 100,
@@ -24,8 +24,6 @@ const DomLodSlick = () => {
 
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
-  const startday = "20220913";
-
   useEffect(() => {
     async function getImage() {
       try {
@@ -42,7 +40,7 @@ const DomLodSlick = () => {
 
   //axios
   useEffect(() => {
-    async function changeImage() {
+    async function changeImage( ) {
       try {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=1&hanOk=0`
@@ -111,12 +109,11 @@ const DomLodSlick = () => {
                               height: "480px",
                             }}
                           >
-                            <h1 className="font-weight-bold mb-0">{v.title}</h1>
+                            <h1 className="font-weight-bold mb-4">{v.title}</h1>
                             <span className="text-secondary">
                               <i class="fi fi-sr-marker mx-1 "></i>
                               {v.addr1} {v.addr2}
                             </span>
-                            <span className="text-secondary">{}</span>
 
                             <a
                               href={`https://map.naver.com/v5/search/${v.title}`}
