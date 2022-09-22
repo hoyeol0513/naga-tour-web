@@ -30,10 +30,22 @@ const DomMetaTag = () => {
           type="text/css"
           href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+        ></link>
         <script
           type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
         ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+        ></link>
+        <link
+          rel="stylesheet"
+          href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css"
+        ></link>
       </Helmet>
     </div>
   );

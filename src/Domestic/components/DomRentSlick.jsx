@@ -50,15 +50,21 @@ const DomRentSlick = () => {
         >
           행사 정보
         </h1>
-        {loading ? <div className="text-center">loading...</div> : 
-        <Slider {...settings}>
-          {rent.map((v, index) => {
-            //렌트카 지역을 위한 지역 설정
-            let area = (v.rdnmadr !== null ? v.rdnmadr : v.lnmadr).split(" ")[0];
-            
-            //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
-            return (
-              (v.rdnmadr || v.lnmadr) && (v.rdnmadr.split(" ")[0] === "부산광역시" || v.lnmadr.split(" ")[0] === "부산광역시")&& (                  
+        {loading ? (
+          <div className="text-center">loading...</div>
+        ) : (
+          <Slider {...settings}>
+            {rent.map((v, index) => {
+              //렌트카 지역을 위한 지역 설정
+              let area = (v.rdnmadr !== null ? v.rdnmadr : v.lnmadr).split(
+                " "
+              )[0];
+
+              //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
+              return (
+                (v.rdnmadr || v.lnmadr) &&
+                (v.rdnmadr.split(" ")[0] === "부산광역시" ||
+                  v.lnmadr.split(" ")[0] === "부산광역시") && (
                   <div
                     className="d-flex flex flex-column text-center"
                     id="KOTRALEAP"
@@ -66,28 +72,27 @@ const DomRentSlick = () => {
                       padding: "500px",
                     }}
                   >
-                    <div style={{width:"1024px" , marginLeft:"auto", marginRight:"auto"}}>
+                    <div
+                      style={{
+                        width: "1024px",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                      }}
+                    >
                       <div className="team card position-relative border-start mb-5">
                         <div className="card-body text-center p-0">
                           <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body rounded ">
-                            <h5 className="font-weight-bold fs-2 mb-0">
+                            <h5 className="font-weight-bold fs-2 mb-2">
                               {v.entrpsNm}
                             </h5>
-                            {/* <span className="text-secondary fs-5 mb-2">
-                              {v.eventstartdate} ~ {v.eventenddate}
-                            </span>
-                            <span className="text-secondary">{v.addr1}</span> */}
-                            {v.rdnmadr !== null ? (
-                              <span className="text-secondary">
-                                {v.rdnmadr}
-                              </span>
-                            ) : (
-                              <span className="text-secondary">
-                                {v.lnmadr}
-                              </span>
-                            )}
 
                             <span className="text-secondary">
+                              <i class="fi fi-sr-marker mx-1 "></i>
+                              {v.rdnmadr !== "" ? v.rdnmadr : v.lnmadr}
+                            </span>
+
+                            <span className="text-secondary">
+                              <i class="fi fi-ss-time-quarter-to mx-2"></i>
                               {v.weekdayOperOpenHhmm} ~ {v.weekdayOperColseHhmm}
                             </span>
                             <span className="text-secondary">
@@ -99,11 +104,11 @@ const DomRentSlick = () => {
                       </div>
                     </div>
                   </div>
-              )
-            );
-          })}
-        </Slider>
-        }
+                )
+              );
+            })}
+          </Slider>
+        )}
       </div>
     </div>
   );

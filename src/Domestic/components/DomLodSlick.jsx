@@ -112,15 +112,18 @@ const DomLodSlick = () => {
                             }}
                           >
                             <h1 className="font-weight-bold mb-0">{v.title}</h1>
-
-                            <span className="text-secondary">{v.addr1}</span>
-                            <span className="text-secondary">{v.addr2}</span>
+                            <span className="text-secondary">
+                              <i class="fi fi-sr-marker mx-1 "></i>
+                              {v.addr1} {v.addr2}
+                            </span>
+                            <span className="text-secondary">{}</span>
 
                             <a
-                              href={`https://www.google.com/search?q=${v.title}`}
-                              target="_blank"
+                              href={`https://map.naver.com/v5/search/${v.title}`}
                               alt="이동하기"
                               className="text-primary"
+                              target="_blank"
+
                             >
                               바로가기
                             </a>
