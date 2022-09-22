@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-const DomLodSlick = ({ city, setSi }) => {
+const DomLodSlick = ({ CityCode }) => {
   const settings = {
     infinite: true,
     speed: 100,
@@ -19,11 +19,12 @@ const DomLodSlick = ({ city, setSi }) => {
   };
 
   const [imageno, setImageNo] = useState(0);
-  const [festival, setFestival] = useState([]);
+  const [lod, setLod] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
+
   useEffect(() => {
     async function getImage() {
       try {
@@ -38,6 +39,9 @@ const DomLodSlick = ({ city, setSi }) => {
     getImage();
   }, []);
 
+  useEffect(() => {
+    console.log("1");
+  }, [CityCode]);
   //axios
   useEffect(() => {
     async function changeImage() {
@@ -47,7 +51,7 @@ const DomLodSlick = ({ city, setSi }) => {
         );
         console.log(`imageno는 : `, imageno);
         console.log(response.data.response.body.items.item);
-        setFestival(response.data.response.body.items.item);
+        setLod(response.data.response.body.items.item);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -55,6 +59,20 @@ const DomLodSlick = ({ city, setSi }) => {
     }
     changeImage();
   }, [imageno]);
+
+  useEffect(() => {
+    async function changeImage() {
+      try {
+        const response = await axios.get(
+          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&areaCode=1&hanOk=0`
+        );
+        setLod(response.data.response.body.items.item);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    changeImage();
+  }, [CityCode]);
 
   function randomNumberInRange(index) {
     return Math.floor(Math.random() * index * 0.02);
@@ -81,7 +99,7 @@ const DomLodSlick = ({ city, setSi }) => {
           <div className="text-center">loading...</div>
         ) : (
           <Slider {...settings}>
-            {festival.map((v, index) => {
+            {lod.map((v, index) => {
               //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
               return (
                 v.firstimage && (
