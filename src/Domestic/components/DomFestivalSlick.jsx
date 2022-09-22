@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-const DomFestivalSlick = (city) => {
+const DomFestivalSlick = ({ CityCode }) => {
   const settings = {
     infinite: true,
     speed: 5000,
@@ -38,8 +38,8 @@ const DomFestivalSlick = (city) => {
   const date = `${current.getFullYear()}` + month + day;
 
   const startday = date;
+
   useEffect(() => {
-    console.log(date);
     async function getImage() {
       try {
         const response = await axios.get(
@@ -52,10 +52,6 @@ const DomFestivalSlick = (city) => {
     }
     getImage();
   }, []);
-
-  useEffect(() => {
-    console.log(city);
-  }, [city]);
 
   //axios
   useEffect(() => {
@@ -74,6 +70,21 @@ const DomFestivalSlick = (city) => {
     }
     changeImage();
   }, [imageno]);
+
+  useEffect(() => {
+    async function changeImage() {
+      try {
+        const response = await axios.get(
+          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&eventStartDate=${startday}`
+        );
+        setFestival(response.data.response.body.items.item);
+        console.log(festival);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    changeImage();
+  }, [CityCode]);
 
   function randomNumberInRange(index) {
     return Math.floor(Math.random() * index * 0.02);

@@ -12,10 +12,11 @@ import DomService from "./components/DomServiceMenu";
 import DomLodSlick from "./components/DomLodSlick";
 import DomServiceMenu from "./components/DomServiceMenu";
 import DomRentSlick from "./components/DomRentSlick";
-import LocationTable from "./components/LocationTable";
+
 const DomMain = () => {
   const [si, setSi] = useState([]);
   const [city, setCity] = useState("");
+  const [cityCode, setCityCode] = useState(0);
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
   useEffect(() => {
@@ -131,8 +132,8 @@ const DomMain = () => {
               type="button"
               className="btn btn-light"
               onClick={() => {
-                console.log(v.name);
                 setCity(v.name);
+                setCityCode(v.code);
               }}
             >
               {v.name}
@@ -140,7 +141,7 @@ const DomMain = () => {
           ))}
         </ul>
       </nav>
-      <DomFestivalSlick city={city} />
+      <DomFestivalSlick CityCode={cityCode} />
       <DomLodSlick city={city} />
       <DomRentSlick city={city} />
 

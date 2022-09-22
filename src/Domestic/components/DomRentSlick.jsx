@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-import LocationTable from "./LocationTable";
 
 const DomRentSlick = ({ city }) => {
   const settings = {
@@ -38,6 +37,7 @@ const DomRentSlick = ({ city }) => {
     }
     setData();
   }, []);
+
   return (
     <div>
       <DomMetaTag />
@@ -65,8 +65,8 @@ const DomRentSlick = ({ city }) => {
               //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
               return (
                 (v.rdnmadr || v.lnmadr) &&
-                (v.rdnmadr.split(" ")[0] === "부산광역시" ||
-                  v.lnmadr.split(" ")[0] === "부산광역시") && (
+                (v.rdnmadr.split(" ")[0].startsWith(city) ||
+                  v.lnmadr.split(" ")[0].startsWith(city)) && (
                   <div
                     className="d-flex flex flex-column text-center"
                     id="KOTRALEAP"
