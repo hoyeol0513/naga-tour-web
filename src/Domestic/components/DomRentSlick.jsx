@@ -65,8 +65,8 @@ const DomRentSlick = ({ city }) => {
               //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
               return (
                 (v.rdnmadr || v.lnmadr) &&
-                (v.rdnmadr.split(" ")[0].startsWith(city) ||
-                  v.lnmadr.split(" ")[0].startsWith(city)) && (
+                (v.rdnmadr.split(" ")[0] === "부산광역시" ||
+                  v.lnmadr.split(" ")[0] === "부산광역시") && (
                   <div
                     className="d-flex flex flex-column text-center"
                     id="KOTRALEAP"

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-const DomLodSlick = ({ city }) => {
+const DomLodSlick = ({ city, setSi }) => {
   const settings = {
     infinite: true,
     speed: 100,
