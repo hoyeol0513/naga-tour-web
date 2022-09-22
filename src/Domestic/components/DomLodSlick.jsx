@@ -39,9 +39,6 @@ const DomLodSlick = ({ CityCode }) => {
     getImage();
   }, []);
 
-  useEffect(() => {
-    console.log("1");
-  }, [CityCode]);
   //axios
   useEffect(() => {
     async function changeImage() {
@@ -49,8 +46,7 @@ const DomLodSlick = ({ CityCode }) => {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=1&hanOk=0`
         );
-        console.log(`imageno는 : `, imageno);
-        console.log(response.data.response.body.items.item);
+
         setLod(response.data.response.body.items.item);
         setLoading(false);
       } catch (error) {
@@ -104,6 +100,7 @@ const DomLodSlick = ({ CityCode }) => {
               return (
                 v.firstimage && (
                   <div
+                    key={index}
                     className="d-flex flex flex-row text-center"
                     id="KOTRALEAP"
                   >
@@ -129,7 +126,7 @@ const DomLodSlick = ({ CityCode }) => {
                           >
                             <h1 className="font-weight-bold mb-4">{v.title}</h1>
                             <span className="text-secondary">
-                              <i class="fi fi-sr-marker mx-1 "></i>
+                              <i className="fi fi-sr-marker mx-1 "></i>
                               {v.addr1} {v.addr2}
                             </span>
 
