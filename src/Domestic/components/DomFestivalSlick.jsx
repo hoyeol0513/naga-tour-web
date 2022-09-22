@@ -124,7 +124,7 @@ const DomFestivalSlick = () => {
                               {v.eventstartdate} ~ {v.eventenddate}
                             </span>
                             <span className="text-secondary">
-                              <i class="fi fi-sr-marker mx-1 "></i>
+                            <i class="fi fi-sr-marker mx-1 "></i>
                               {v.addr1} {v.addr2}
                             </span>
                           </div>

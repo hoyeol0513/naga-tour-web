@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
+import LocationTable from "./LocationTable";
 
-const DomRentSlick = () => {
+const DomRentSlick = ({si}) => {
   const settings = {
     infinite: true,
     speed: 100,
@@ -42,14 +43,15 @@ const DomRentSlick = () => {
       <DomMetaTag />
       <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
-          Event information
+          Rent Car information
         </h6>
         <h1
           className="text-dark font-weight-bold text-center pb-3"
           id="KOTRALEAP"
         >
-          행사 정보
+          렌트카 정보
         </h1>
+        <LocationTable si={si} />
         {loading ? (
           <div className="text-center">loading...</div>
         ) : (
