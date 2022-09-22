@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-const DomFestivalSlick = () => {
+const DomFestivalSlick = (city) => {
   const settings = {
     infinite: true,
     speed: 5000,
@@ -52,6 +52,10 @@ const DomFestivalSlick = () => {
     }
     getImage();
   }, []);
+
+  useEffect(() => {
+    console.log(city);
+  }, [city]);
 
   //axios
   useEffect(() => {
@@ -124,7 +128,7 @@ const DomFestivalSlick = () => {
                               {v.eventstartdate} ~ {v.eventenddate}
                             </span>
                             <span className="text-secondary">
-                            <i class="fi fi-sr-marker mx-1 "></i>
+                              <i class="fi fi-sr-marker mx-1 "></i>
                               {v.addr1} {v.addr2}
                             </span>
                           </div>
