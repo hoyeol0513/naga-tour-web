@@ -12,17 +12,19 @@ import DomService from "./components/DomServiceMenu";
 import DomLodSlick from "./components/DomLodSlick";
 import DomServiceMenu from "./components/DomServiceMenu";
 import DomRentSlick from "./components/DomRentSlick";
+import LocationTable from "./components/LocationTable";
 const DomMain = () => {
   const [si, setSi] = useState([]);
+  const [city, setCity] = useState("");
   const servicekey =
-  "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
+    "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
   useEffect(() => {
     async function getSi() {
       try {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/areaCode?serviceKey=${servicekey}&numOfRows=17&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`
         );
-        console.log(response.data.response.body.items.item)
+        console.log(response.data.response.body.items.item);
         setSi(response.data.response.body.items.item);
       } catch (error) {
         console.log(error);
@@ -110,24 +112,38 @@ const DomMain = () => {
 
           <div className="mx-auto">
             <div className="input-group">
-              <input
-                type="text"
-                className="form-control border-light"
-                style={{ padding: "30px" }}
-                placeholder="검색어를 입력해주세요"
-              />
-              <div className="input-group-append">
-                <button className="btn btn-primary px-3">검색</button>
-              </div>
+              <div className="input-group-append"></div>
             </div>
           </div>
         </div>
       </div>
+      {/* //<LocationTable si={si} /> */}
+      <nav style={{ marginTop: "100px", textAlign: "center" }}>
+        <ul
+          style={{
+            display: "inline-block",
+            padding: "0 20px",
+            borderRadius: "10px",
+          }}
+        >
+          {si.map((v, index) => (
+            <button
+              type="button"
+              className="btn btn-light"
+              onClick={() => {
+                console.log(v.name);
+                setCity(v.name);
+              }}
+            >
+              {v.name}
+            </button>
+          ))}
+        </ul>
+      </nav>
+      <DomFestivalSlick city={city} />
+      <DomLodSlick city={city} />
+      <DomRentSlick city={city} />
 
-      <DomFestivalSlick />
-      <DomLodSlick />
-      <DomRentSlick si={si} />
-      <DomServiceMenu />
       <div className="container-fluid pt-5">
         <div className="container">
           <div className="text-center pb-2">

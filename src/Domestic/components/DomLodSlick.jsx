@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-const DomLodSlick = ( {si, setSi} ) => {
+const DomLodSlick = ({ city, setSi }) => {
   const settings = {
     infinite: true,
     speed: 100,
@@ -40,7 +40,7 @@ const DomLodSlick = ( {si, setSi} ) => {
 
   //axios
   useEffect(() => {
-    async function changeImage( ) {
+    async function changeImage() {
       try {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=1&hanOk=0`
@@ -120,7 +120,6 @@ const DomLodSlick = ( {si, setSi} ) => {
                               alt="이동하기"
                               className="text-primary"
                               target="_blank"
-
                             >
                               바로가기
                             </a>

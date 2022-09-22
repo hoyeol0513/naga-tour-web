@@ -7,7 +7,7 @@ import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
 import LocationTable from "./LocationTable";
 
-const DomRentSlick = ({si}) => {
+const DomRentSlick = ({ city }) => {
   const settings = {
     infinite: true,
     speed: 100,
@@ -51,7 +51,7 @@ const DomRentSlick = ({si}) => {
         >
           렌트카 정보
         </h1>
-        <LocationTable si={si} />
+
         {loading ? (
           <div className="text-center">loading...</div>
         ) : (
