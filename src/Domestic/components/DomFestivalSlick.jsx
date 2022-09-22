@@ -89,50 +89,54 @@ const DomFestivalSlick = () => {
         >
           행사 정보
         </h1>
-        {loading ? <div className="text-center">loading...</div> : 
-        <Slider {...settings}>
-          {festival.map((v, index) => {
-            //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
-            return (
-              v.firstimage && (
-                <div
-                  className="d-flex justify-content-around flex-column ml-5 pl-5"
-                  id="KOTRALEAP"
-                  style={{
-                    padding: "500px",
-                  }}
-                >
-                  <img
-                    object-fit="fill"
-                    src={v.firstimage}
-                    width="380px"
-                    height="500px"
-                    alt="이미지"
-                    className="shadow-lg bg-body "
-                  />
+        {loading ? (
+          <div className="text-center">loading...</div>
+        ) : (
+          <Slider {...settings}>
+            {festival.map((v, index) => {
+              //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
+              return (
+                v.firstimage && (
+                  <div
+                    className="d-flex justify-content-around flex-column ml-5 pl-5"
+                    id="KOTRALEAP"
+                    style={{
+                      padding: "500px",
+                    }}
+                  >
+                    <img
+                      object-fit="fill"
+                      src={v.firstimage}
+                      width="380px"
+                      height="500px"
+                      alt="이미지"
+                      className="shadow-lg bg-body "
+                    />
 
-                  <div style={{ width: "380px" }}>
-                    <div className="team card position-relative border-start mb-5">
-                      <div className="card-body text-center p-0">
-                        <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body  ">
-                          <h5 className="font-weight-bold fs-2 mb-0">
-                            {v.title}
-                          </h5>
-                          <span className="text-secondary fs-5 mb-2">
-                            {v.eventstartdate} ~ {v.eventenddate}
-                          </span>
-                          <span className="text-secondary">{v.addr1}</span>
-                          <span className="text-secondary">{v.addr2}</span>
+                    <div style={{ width: "380px" }}>
+                      <div className="team card position-relative border-start mb-5">
+                        <div className="card-body text-center p-0">
+                          <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body  ">
+                            <h5 className="font-weight-bold fs-2 mb-0">
+                              {v.title}
+                            </h5>
+                            <span className="text-secondary fs-5 mb-2">
+                              {v.eventstartdate} ~ {v.eventenddate}
+                            </span>
+                            <span className="text-secondary">
+                              <i class="fi fi-sr-marker mx-1 "></i>
+                              {v.addr1} {v.addr2}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )
-            );
-          })}
-        </Slider>
-        }
+                )
+              );
+            })}
+          </Slider>
+        )}
       </div>
     </div>
   );
