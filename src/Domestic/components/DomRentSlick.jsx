@@ -42,23 +42,29 @@ const DomRentSlick = () => {
       <DomMetaTag />
       <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
-          Event information
+          About Rent Car
         </h6>
         <h1
           className="text-dark font-weight-bold text-center pb-3"
           id="KOTRALEAP"
         >
-          행사 정보
+          렌트카 정보
         </h1>
-        {loading ? <div className="text-center">loading...</div> : 
-        <Slider {...settings}>
-          {rent.map((v, index) => {
-            //렌트카 지역을 위한 지역 설정
-            let area = (v.rdnmadr !== null ? v.rdnmadr : v.lnmadr).split(" ")[0];
-            
-            //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
-            return (
-              (v.rdnmadr || v.lnmadr) && (v.rdnmadr.split(" ")[0] === "부산광역시" || v.lnmadr.split(" ")[0] === "부산광역시")&& (                  
+        {loading ? (
+          <div className="text-center">loading...</div>
+        ) : (
+          <Slider {...settings}>
+            {rent.map((v, index) => {
+              //렌트카 지역을 위한 지역 설정
+              let area = (v.rdnmadr !== null ? v.rdnmadr : v.lnmadr).split(
+                " "
+              )[0];
+
+              //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
+              return (
+                (v.rdnmadr || v.lnmadr) &&
+                (v.rdnmadr.split(" ")[0] === "부산광역시" ||
+                  v.lnmadr.split(" ")[0] === "부산광역시") && (
                   <div
                     className="d-flex flex flex-column text-center"
                     id="KOTRALEAP"
@@ -66,7 +72,13 @@ const DomRentSlick = () => {
                       padding: "500px",
                     }}
                   >
-                    <div style={{width:"1024px" , marginLeft:"auto", marginRight:"auto"}}>
+                    <div
+                      style={{
+                        width: "1024px",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                      }}
+                    >
                       <div className="team card position-relative border-start mb-5">
                         <div className="card-body text-center p-0">
                           <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body rounded ">
@@ -82,9 +94,7 @@ const DomRentSlick = () => {
                                 {v.rdnmadr}
                               </span>
                             ) : (
-                              <span className="text-secondary">
-                                {v.lnmadr}
-                              </span>
+                              <span className="text-secondary">{v.lnmadr}</span>
                             )}
 
                             <span className="text-secondary">
@@ -99,11 +109,11 @@ const DomRentSlick = () => {
                       </div>
                     </div>
                   </div>
-              )
-            );
-          })}
-        </Slider>
-        }
+                )
+              );
+            })}
+          </Slider>
+        )}
       </div>
     </div>
   );

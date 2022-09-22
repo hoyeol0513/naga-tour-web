@@ -82,35 +82,11 @@ const DomMain = () => {
           </div>
         </nav>
       </div>
-      <div
-        className="jumbotron jumbotron-fluid mb-5"
-        style={{
-          backgroundSize: "100%",
-        }}
-      >
-        <div className="container text-center py-5">
-          <h1 className="text-white mb-4 fs-1">국내</h1>
-
-          <div className="mx-auto">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control border-light"
-                style={{ padding: "30px" }}
-                placeholder="검색어를 입력해주세요"
-              />
-              <div className="input-group-append">
-                <button className="btn btn-primary px-3">검색</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <DomServiceMenu />
       <DomFestivalSlick />
       <DomLodSlick />
       <DomRentSlick />
-      <DomServiceMenu />
+
       <div className="container-fluid pt-5">
         <div className="container">
           <div className="text-center pb-2">

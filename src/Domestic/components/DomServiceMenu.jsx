@@ -3,7 +3,7 @@ import React from "react";
 const DomServiceMenu = () => {
   return (
     <div>
-      <div className="container-fluid pt-5 border border-top-0">
+      <div className="container-fluid pt-5 ">
         <div className="container">
           <div className="text-center pb-2">
             <h6 className="text-primary  mb-0" id="KOTRALEAP">

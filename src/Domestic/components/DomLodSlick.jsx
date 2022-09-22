@@ -117,12 +117,12 @@ const DomLodSlick = () => {
                             <span className="text-secondary">{v.addr2}</span>
 
                             <a
-                              href={`https://www.google.com/search?q=${v.title}`}
+                              href={`https://map.naver.com/v5/search/${v.addr1}`}
                               target="_blank"
                               alt="이동하기"
                               className="text-primary"
                             >
-                              바로가기
+                              네이버 지도 바로가기
                             </a>
                           </div>
                         </div>
