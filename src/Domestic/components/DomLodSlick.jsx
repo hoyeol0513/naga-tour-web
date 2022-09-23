@@ -31,7 +31,7 @@ const DomLodSlick = ({ CityCode }) => {
     async function getImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=1&hanOk=0`
+          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=1&hanOk=0`
         );
         setImageNo(randomNumberInRange(response.data.response.body.totalCount));
       } catch (error) {
@@ -50,7 +50,6 @@ const DomLodSlick = ({ CityCode }) => {
         );
 
         setLod(response.data.response.body.items.item);
-        console.log(lod);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -63,11 +62,12 @@ const DomLodSlick = ({ CityCode }) => {
     async function changeImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&hanOk=0`
+          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}`
         );
         setLod(response.data.response.body.items.item);
-        console.log(lod);
+        console.log("lod changed",lod);
         console.log(CityCode);
+        console.log("--------------------------")
         setLoading(false);
       } catch (error) {
         console.log(error);
