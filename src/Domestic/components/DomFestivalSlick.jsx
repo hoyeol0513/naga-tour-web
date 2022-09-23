@@ -19,7 +19,6 @@ const DomFestivalSlick = ({ CityCode }) => {
   const [imageno, setImageNo] = useState(0);
   const [festival, setFestival] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
 
@@ -77,6 +76,7 @@ const DomFestivalSlick = ({ CityCode }) => {
           `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=$0&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&eventStartDate=${startday}`
         );
         setFestival(response.data.response.body.items.item);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -106,49 +106,50 @@ const DomFestivalSlick = ({ CityCode }) => {
           <div className="text-center">loading...</div>
         ) : (
           <Slider {...settings}>
-            {festival.map((v, index) => {
-              //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
-              return (
-                v.firstimage && (
-                  <div
-                    key={index}
-                    className="d-flex justify-content-around flex-column ml-5 pl-5"
-                    id="KOTRALEAP"
-                    style={{
-                      padding: "500px",
-                    }}
-                  >
-                    <img
-                      object-fit="fill"
-                      src={v.firstimage}
-                      width="380px"
-                      height="500px"
-                      alt="이미지"
-                      className="shadow-lg bg-body "
-                    />
+            {festival &&
+              festival.map((v, index) => {
+                //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
+                return (
+                  v.firstimage && (
+                    <div
+                      key={index}
+                      className="d-flex justify-content-around flex-column ml-5 pl-5"
+                      id="KOTRALEAP"
+                      style={{
+                        padding: "500px",
+                      }}
+                    >
+                      <img
+                        object-fit="fill"
+                        src={v.firstimage}
+                        width="380px"
+                        height="500px"
+                        alt="이미지"
+                        className="shadow-lg bg-body "
+                      />
 
-                    <div style={{ width: "380px" }}>
-                      <div className="team card position-relative border-start mb-5">
-                        <div className="card-body text-center p-0">
-                          <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body  ">
-                            <h5 className="font-weight-bold fs-2 mb-0">
-                              {v.title}
-                            </h5>
-                            <span className="text-secondary fs-5 mb-2">
-                              {v.eventstartdate} ~ {v.eventenddate}
-                            </span>
-                            <span className="text-secondary">
-                              <i className="fi fi-sr-marker mx-1 "></i>
-                              {v.addr1} {v.addr2}
-                            </span>
+                      <div style={{ width: "380px" }}>
+                        <div className="team card position-relative border-start mb-5">
+                          <div className="card-body text-center p-0">
+                            <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body  ">
+                              <h5 className="font-weight-bold fs-2 mb-0">
+                                {v.title}
+                              </h5>
+                              <span className="text-secondary fs-5 mb-2">
+                                {v.eventstartdate} ~ {v.eventenddate}
+                              </span>
+                              <span className="text-secondary">
+                                <i className="fi fi-sr-marker mx-1 "></i>
+                                {v.addr1} {v.addr2}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )
-              );
-            })}
+                  )
+                );
+              })}
           </Slider>
         )}
       </div>

@@ -38,7 +38,7 @@ const DomRentSlick = ({ CityName }) => {
     setData();
   }, []);
   return (
-    <div>
+    <div className="border border-top-0">
       <DomMetaTag />
       <div>
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
