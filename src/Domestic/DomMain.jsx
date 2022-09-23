@@ -16,7 +16,7 @@ import DomRentSlick from "./components/DomRentSlick";
 const DomMain = () => {
   const [si, setSi] = useState([]);
   const [city, setCity] = useState("");
-  const [cityCode, setCityCode] = useState(0);
+  const [cityCode, setCityCode] = useState(1);
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
   useEffect(() => {
@@ -127,6 +127,7 @@ const DomMain = () => {
             borderRadius: "10px",
           }}
         >
+          <DomServiceMenu />
           {si.map((v, index) => (
             <button
               key={index}
