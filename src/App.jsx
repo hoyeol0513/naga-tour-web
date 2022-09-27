@@ -3,6 +3,7 @@ import ScrollTop from "./components/ScrollTop";
 import Main from "./Intro/mainpage/Intro";
 import SubMain from "./Domestic/DomMain";
 import Blog from "./Domestic/Blog";
+import Single from "./Domestic/Single";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/SubMain" element={<SubMain />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/single" element={<Single />}></Route>
         </Routes>
         <ScrollTop />
       </Router>

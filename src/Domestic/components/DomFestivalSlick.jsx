@@ -44,6 +44,7 @@ const DomFestivalSlick = ({ CityCode }) => {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}"`
         );
+        console.log(response);
         setImageNo(randomNumberInRange(response.data.response.body.totalCount));
       } catch (error) {
         console.log(error);
