@@ -1,44 +1,11 @@
 import React from "react";
+import DomNavBar from "./components/DomNavBar";
 
 const Blog = () => {
   return (
     <>
-      <div className="container-fluid bg-dark">
-        <div className="row py-2 px-lg-5">
-          <div className="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-            <div className="d-inline-flex align-items-center text-white">
-              <small>
-                <i className="fa fa-phone-alt mr-2"></i>+012 345 6789
-              </small>
-              <small className="px-3">|</small>
-              <small>
-                <i className="fa fa-envelope mr-2"></i>info@example.com
-              </small>
-            </div>
-          </div>
-          <div className="col-lg-6 text-center text-lg-right">
-            <div className="d-inline-flex align-items-center">
-              <a className="text-white px-2" href="">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a className="text-white px-2" href="">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a className="text-white px-2" href="">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a className="text-white px-2" href="">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a className="text-white pl-2" href="">
-                <i className="fab fa-youtube"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="container-fluid p-0">
+      <DomNavBar />
+      {/* <div className="container-fluid p-0">
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
           <a href="index.html" className="navbar-brand ml-lg-3">
             <h1 className="m-0 display-5 text-uppercase text-primary">
@@ -100,8 +67,7 @@ const Blog = () => {
             </a>
           </div>
         </nav>
-      </div>
-
+      </div> */}
       <div className="jumbotron jumbotron-fluid mb-5">
         <div className="container text-center py-5">
           <h1 className="text-white display-3">Latest Blog</h1>
@@ -116,7 +82,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
       <div className="container py-5">
         <div className="row">
           <div className="col-lg-8">
@@ -523,7 +488,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
       <div className="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
         <div className="row pt-5">
           <div className="col-lg-7 col-md-6">
@@ -637,11 +601,9 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
       <a href="#" className="btn btn-lg btn-primary back-to-top">
         <i className="fa fa-angle-double-up"></i>
       </a>
-
       <div className="container-fluid bg-dark">
         <div className="row py-2 px-lg-5">
           <div className="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -676,7 +638,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
       <div className="container-fluid p-0">
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
           <a href="index.html" className="navbar-brand ml-lg-3">
@@ -736,7 +697,6 @@ const Blog = () => {
           </div>
         </nav>
       </div>
-
       <div className="jumbotron jumbotron-fluid mb-5">
         <div className="container text-center py-5">
           <h1 className="text-white display-3">Latest Blog</h1>
@@ -751,7 +711,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
       <div className="container py-5">
         <div className="row">
           <div className="col-lg-8">
@@ -760,7 +719,7 @@ const Blog = () => {
                 <div className="position-relative">
                   <img
                     className="img-fluid w-100"
-                    src="img/blog-1.jpg"
+                    src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5f%2F0a%2Ff7%2F5f0af76c76607bbc771e2ca9460c05e1.jpg&type=sc960_832"
                     alt=""
                   />
                   <div
@@ -782,7 +741,7 @@ const Blog = () => {
                       <img
                         className="rounded-circle"
                         style={{ width: "40px", height: "40px" }}
-                        src="img/user.jpg"
+                        src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5f%2F0a%2Ff7%2F5f0af76c76607bbc771e2ca9460c05e1.jpg&type=sc960_832"
                         alt=""
                       />
                       <a className="text-muted ml-2" href="">
@@ -816,7 +775,7 @@ const Blog = () => {
                 <div className="position-relative">
                   <img
                     className="img-fluid w-100"
-                    src="img/blog-2.jpg"
+                    src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5f%2F0a%2Ff7%2F5f0af76c76607bbc771e2ca9460c05e1.jpg&type=sc960_832"
                     alt=""
                   />
                   <div
@@ -838,7 +797,7 @@ const Blog = () => {
                       <img
                         className="rounded-circle"
                         style={{ width: "40px", height: "40px" }}
-                        src="img/user.jpg"
+                        src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5f%2F0a%2Ff7%2F5f0af76c76607bbc771e2ca9460c05e1.jpg&type=sc960_832"
                         alt=""
                       />
                       <a className="text-muted ml-2" href="">
@@ -1158,7 +1117,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
       <div className="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
         <div className="row pt-5">
           <div className="col-lg-7 col-md-6">
