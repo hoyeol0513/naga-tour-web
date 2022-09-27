@@ -12,6 +12,7 @@ import DomService from "./components/DomServiceMenu";
 import DomLodSlick from "./components/DomLodSlick";
 import DomServiceMenu from "./components/DomServiceMenu";
 import DomRentSlick from "./components/DomRentSlick";
+import DomNavBar from "./components/DomNavBar";
 
 const DomMain = () => {
   const [si, setSi] = useState([]);
@@ -40,68 +41,7 @@ const DomMain = () => {
         <title>당신의 여행 도우미 NAGA | DOMHOME</title>
       </Helmet>
 
-      <div className="container-fluid p-0">
-        <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-          <Link to="/" className="navbar-brand ml-lg-3">
-            <h1 className="m-0 display-5 text-uppercase text-primary">
-              <i className="fa fa-1x fa-plane text-blue pr-2"></i>NAGA
-            </h1>
-          </Link>
-          <button
-            type="button"
-            className="navbar-toggler"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className="collapse navbar-collapse justify-content-between px-lg-3"
-            id="navbarCollapse"
-          >
-            <div className="navbar-nav m-auto py-0">
-              <Link to="/submain" className="nav-item nav-link active">
-                Home
-              </Link>
-              <a href="/about" className="nav-item nav-link">
-                About
-              </a>
-              <a href="/service" className="nav-item nav-link">
-                Service
-              </a>
-              <a href="/price" className="nav-item nav-link">
-                Price
-              </a>
-              <div className="nav-item dropdown">
-                <a
-                  href="/"
-                  className="nav-link dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Pages
-                </a>
-                <div className="dropdown-menu rounded-0 m-0">
-                  <a href="blog.html" className="dropdown-item">
-                    Blog Grid
-                  </a>
-                  <a href="single.html" className="dropdown-item">
-                    Blog Detail
-                  </a>
-                </div>
-              </div>
-              {/* <a href="contact.html" className="nav-item nav-link">
-                Contact
-              </a> */}
-            </div>
-            <Link
-              to="/login"
-              className="btn btn-primary py-2 px-4 d-none d-lg-block"
-            >
-              LOGIN
-            </Link>
-          </div>
-        </nav>
-      </div>
+      <DomNavBar />
       <div
         className="jumbotron jumbotron-fluid mb-5"
         style={{
