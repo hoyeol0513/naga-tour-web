@@ -58,8 +58,22 @@ const DomMain = () => {
           </div>
         </div>
       </div>
+
       {/* //<LocationTable si={si} /> */}
       <nav style={{ marginTop: "100px", textAlign: "center" }}>
+        {si.map((v, index) => (
+          <button
+            key={index}
+            type="button"
+            className="btn btn-primary m-2"
+            onClick={() => {
+              setCity(v.name);
+              setCityCode(v.code);
+            }}
+          >
+            {v.name}
+          </button>
+        ))}
         <ul
           style={{
             display: "inline-block",
@@ -67,183 +81,12 @@ const DomMain = () => {
             borderRadius: "10px",
           }}
         >
-          <DomServiceMenu />
-          {si.map((v, index) => (
-            <button
-              key={index}
-              type="button"
-              className="btn btn-light"
-              onClick={() => {
-                setCity(v.name);
-                setCityCode(v.code);
-              }}
-            >
-              {v.name}
-            </button>
-          ))}
-          <div>{city}의 지역정보 입니다.</div>
+          {/* <DomServiceMenu /> */}
         </ul>
       </nav>
+      <DomRentSlick CityName={city} />
       <DomFestivalSlick CityCode={cityCode} />
       <DomLodSlick CityCode={cityCode} />
-      <DomRentSlick CityName={city} />
-
-      <div className="container-fluid pt-5">
-        <div className="container">
-          <div className="text-center pb-2">
-            <h6 className="text-primary text-uppercase font-weight-bold">
-              Delivery Team
-            </h6>
-            <h1 className="mb-4">Meet Our Delivery Team</h1>
-          </div>
-          <div className="row">
-            <div className="col-lg-3 col-md-6">
-              <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img
-                  className="card-img-top"
-                  src={require("../Domestic/img/team-1.jpg")}
-                  alt=""
-                />
-                <div className="card-body text-center p-0">
-                  <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                    <h5 className="font-weight-bold">Full Name</h5>
-                    <span>Designation</span>
-                  </div>
-                  <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="/">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img
-                  className="card-img-top"
-                  src={require("../Domestic/img/team-2.jpg")}
-                  alt=""
-                />
-                <div className="card-body text-center p-0">
-                  <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                    <h5 className="font-weight-bold">Full Name</h5>
-                    <span>Designation</span>
-                  </div>
-                  <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="/">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img className="card-img-top" src="img/team-3.jpg" alt="" />
-                <div className="card-body text-center p-0">
-                  <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                    <h5 className="font-weight-bold">Full Name</h5>
-                    <span>Designation</span>
-                  </div>
-                  <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="/">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="team card position-relative overflow-hidden border-0 mb-5">
-                <img className="card-img-top" src="img/team-4.jpg" alt="" />
-                <div className="card-body text-center p-0">
-                  <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                    <h5 className="font-weight-bold">Full Name</h5>
-                    <span>Designation</span>
-                  </div>
-                  <div className="team-social d-flex align-items-center justify-content-center bg-primary">
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a
-                      className="btn btn-outline-dark btn-social mr-2"
-                      href="/"
-                    >
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a className="btn btn-outline-dark btn-social" href="/">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* 
       <div className="container-fluid pt-5">
