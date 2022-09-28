@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DomMetaTag from "./DomMetaTag";
 
 const DomNavBar = () => {
   return (
     <div>
+      <DomMetaTag />
       <div className="container-fluid p-0">
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
           <Link to="/" className="navbar-brand ml-lg-3">

@@ -52,15 +52,12 @@ const Main = () => {
             <div className="col-lg-8">
               <div className="text-center my-5">
                 <h1 className="display-10 fw-bolder text-white mb-5 text-shadow">
-                  여행지를 선택해주세요
+                  NAGA에 오신것을 환영합니다.
                 </h1>
 
                 <div className="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                  <a className="btn btn-primary btn-lg px-4 me-sm-5" href="#!">
-                    해외
-                  </a>
                   <Link className="btn btn-primary btn-lg px-4" to="/SubMain">
-                    국내
+                    입장
                   </Link>
                 </div>
               </div>

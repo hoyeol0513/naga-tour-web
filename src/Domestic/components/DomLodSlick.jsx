@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
+
 const DomLodSlick = ({ CityCode }) => {
   const settings = {
     infinite: true,
@@ -65,9 +64,9 @@ const DomLodSlick = ({ CityCode }) => {
           `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}`
         );
         setLod(response.data.response.body.items.item);
-        console.log("lod changed",lod);
+        console.log("lod changed", lod);
         console.log(CityCode);
-        console.log("--------------------------")
+        console.log("--------------------------");
         setLoading(false);
       } catch (error) {
         console.log(error);
