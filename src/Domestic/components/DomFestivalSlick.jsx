@@ -71,6 +71,7 @@ const DomFestivalSlick = ({ CityCode }) => {
 
   useEffect(() => {
     async function changeImage() {
+      setLoading(true);
       try {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=$0&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&eventStartDate=${startday}`
