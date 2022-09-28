@@ -1,7 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
@@ -86,10 +84,7 @@ const DomRentSlick = ({ CityName }) => {
                             <h5 className="font-weight-bold fs-2 mb-0">
                               {v.entrpsNm}
                             </h5>
-                            {/* <span className="text-secondary fs-5 mb-2">
-                              {v.eventstartdate} ~ {v.eventenddate}
-                            </span>
-                            <span className="text-secondary">{v.addr1}</span> */}
+
                             {v.rdnmadr !== "" ? (
                               <span className="text-secondary">
                                 {v.rdnmadr}
