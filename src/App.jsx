@@ -5,6 +5,7 @@ import SubMain from "./Domestic/DomMain";
 import Blog from "./Domestic/Blog";
 import Single from "./Domestic/Single";
 import About from "./Domestic/About";
+import Price from "./Domestic/Price";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/single" element={<Single />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/price" element={<Price />}></Route>
         </Routes>
         <ScrollTop />
       </Router>
