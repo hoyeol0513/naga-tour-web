@@ -59,6 +59,7 @@ const DomLodSlick = ({ CityCode }) => {
 
   useEffect(() => {
     async function changeImage() {
+      setLoading(true);
       try {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}`
@@ -135,7 +136,7 @@ const DomLodSlick = ({ CityCode }) => {
                               </span>
 
                               <a
-                                href={`https://map.naver.com/v5/search/${v.title}`}
+                                href={`https://map.naver.com/v5/search/${v.addr1}`}
                                 alt="이동하기"
                                 className="text-primary"
                                 target="_blank"
