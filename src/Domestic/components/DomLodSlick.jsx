@@ -136,7 +136,7 @@ const DomLodSlick = ({ CityCode }) => {
                               </span>
 
                               <a
-                                href={`https://map.naver.com/v5/search/${v.addr1}`}
+                                href={`/single/${v.contentid}/${v.contenttypeid}`}
                                 alt="이동하기"
                                 className="text-primary"
                                 target="_blank"

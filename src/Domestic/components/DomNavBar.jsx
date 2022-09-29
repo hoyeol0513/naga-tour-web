@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DomMetaTag from "./DomMetaTag";
-
+import Styles from "../css/style.css";
 const DomNavBar = () => {
   return (
     <div>
