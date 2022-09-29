@@ -143,6 +143,11 @@ const DomFestivalSlick = ({ CityCode }) => {
                                 <i className="fi fi-sr-marker mx-1 "></i>
                                 {v.addr1} {v.addr2}
                               </span>
+                              <a
+                                href={`/single/${v.contentid}/${v.contenttypeid}`}
+                              >
+                                바로가기
+                              </a>
                             </div>
                           </div>
                         </div>
