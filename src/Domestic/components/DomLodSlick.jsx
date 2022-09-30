@@ -139,7 +139,6 @@ const DomLodSlick = ({ CityCode }) => {
                                 href={`/single/${v.contentid}/${v.contenttypeid}`}
                                 alt="이동하기"
                                 className="text-primary"
-                                target="_blank"
                               >
                                 바로가기
                               </a>

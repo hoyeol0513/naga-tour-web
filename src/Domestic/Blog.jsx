@@ -9,17 +9,27 @@ const Blog = () => {
       <Helmet>
         <title>당신의 여행 도우미 NAGA | BLOG</title>
       </Helmet>
+
       <div className="jumbotron jumbotron-fluid mb-5">
         <div className="container text-center py-5">
           <h1 className="text-white display-3">Latest Blog</h1>
           <div className="d-inline-flex align-items-center text-white">
-            <p className="m-0">
-              <a className="text-white" href="">
-                Home
-              </a>
-            </p>
-            <i className="fa fa-circle px-3"></i>
-            <p className="m-0">Blog</p>
+            <div className="input-group mb-3">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>select</option>
+                <option value="1">hotel</option>
+                <option value="2">나는 강호열이다</option>
+                <option value="3">Three</option>
+              </select>
+              <input
+                type="text"
+                className="form-control"
+                aria-label="Text input with dropdown button"
+              />
+            </div>
           </div>
         </div>
       </div>
