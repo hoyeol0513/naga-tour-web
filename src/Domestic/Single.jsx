@@ -9,7 +9,7 @@ import { NaverMap, RenderAfterNavermapsLoaded } from "react-naver-maps";
 
 const Single = () => {
   const { contentid } = useParams();
-  const { contenttypeid } = useParams();
+  const { contenttypeid, mapx, mapy } = useParams();
   const [array, setArray] = useState([]);
   const [title, setTitle] = useState("");
   const servicekey =
@@ -23,8 +23,8 @@ const Single = () => {
           width: "100%",
           height: "30vh",
         }}
-        defaultCenter={{ lat: 33, lng: 33 }}
-        defaultZoom={10}
+        defaultCenter={{ lat: mapy, lng: mapx }}
+        defaultZoom={16}
       />
     );
   }
@@ -83,7 +83,7 @@ const Single = () => {
                 <div>{v.tel}</div>
                 <div>{v.overview}</div>
                 <RenderAfterNavermapsLoaded
-                  ncpClientId={`YOUR_NCP_CLIENT_ID`}
+                  ncpClientId={`22kbpv25ll`}
                   error={<p>Maps Load Error</p>}
                   loading={<p>Maps Loading..</p>}
                 >

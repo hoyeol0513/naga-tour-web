@@ -14,7 +14,7 @@ function App() {
           <Route path="/SubMain" element={<SubMain />} />
           <Route path="/blog" element={<Blog />} />
           <Route
-            path="/single/:contentid/:contenttypeid"
+            path="/single/:contentid/:contenttypeid/:mapx/:mapy"
             element={<Single />}
           ></Route>
           <Route path="/about" element={<About />}></Route>
