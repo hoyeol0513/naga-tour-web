@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import DomMetaTag from "./components/DomMetaTag";
-import { NaverMap, RenderAfterNavermapsLoaded } from "react-naver-maps";
+import { Marker, NaverMap, RenderAfterNavermapsLoaded } from "react-naver-maps";
 
 const Single = () => {
   const { contentid, contenttypeid } = useParams();
@@ -24,7 +24,13 @@ const Single = () => {
         }}
         defaultCenter={{ lat: array[0].mapy, lng: array[0].mapx }}
         defaultZoom={16}
-      />
+      >
+        <Marker
+          key={1}
+          position={{ lat: array[0].mapy, lng: array[0].mapx }}
+          animation={2}
+        />
+      </NaverMap>
     );
   }
   useEffect(() => {

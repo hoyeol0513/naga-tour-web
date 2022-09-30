@@ -8,6 +8,7 @@ import DomFestivalSlick from "./components/DomFestivalSlick";
 import DomLodSlick from "./components/DomLodSlick";
 import DomRentSlick from "./components/DomRentSlick";
 import DomNavBar from "./components/DomNavBar";
+import Wording from "./components/Wording";
 
 const DomMain = () => {
   const [si, setSi] = useState([]);
@@ -45,16 +46,29 @@ const DomMain = () => {
       >
         <div className="container text-center py-5">
           <h1 className="text-white display-3">Home</h1>
-
-          <div className="mx-auto">
-            <div className="input-group">
-              <div className="input-group-append"></div>
+          <div className="input-group input-group-text mt-4 w-75 mx-auto  ">
+            <div className="d-inline-flex">
+              <select
+                className="d-inline-flex form-select"
+                aria-label="Default select example"
+              >
+                <option selected>선택</option>
+                <option value="1">관광 & 문화</option>
+                <option value="2">축제</option>
+                <option value="3">숙박</option>
+                <option value="4">음식</option>
+              </select>
             </div>
+            <input
+              type="text"
+              className="form-control"
+              aria-label="Text input with dropdown button"
+            />
           </div>
         </div>
       </div>
 
-      {/* //<LocationTable si={si} /> */}
+      {/* //<LocationTable si={si} /> 
       <nav style={{ marginTop: "100px", textAlign: "center" }}>
         {si.map((v, index) => (
           <button
@@ -77,9 +91,28 @@ const DomMain = () => {
           }}
         ></ul>
       </nav>
-      <DomRentSlick CityName={city} />
+      */}
+
       <DomFestivalSlick CityCode={cityCode} />
       <DomLodSlick CityCode={cityCode} />
+      <DomRentSlick CityName={city} />
+
+      {/* 글귀 */}
+      <section className="py-2">
+        <div className="container px-5 my-2 px-5">
+          <div className="text-center mb-4">
+            <h2 className="fw-bolder fs-2 mt-4">오늘의 여행 띵언</h2>
+            <p className="lead mb-0"></p>
+          </div>
+          <div className="row gx-5 justify-content-center">
+            <div className="col-lg-10">
+              <div className="card mb-4">
+                <Wording />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
         <div className="row pt-5">
