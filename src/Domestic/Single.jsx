@@ -8,8 +8,7 @@ import DomMetaTag from "./components/DomMetaTag";
 import { NaverMap, RenderAfterNavermapsLoaded } from "react-naver-maps";
 
 const Single = () => {
-  const { contentid } = useParams();
-  const { contenttypeid, mapx, mapy } = useParams();
+  const { contentid, contenttypeid } = useParams();
   const [array, setArray] = useState([]);
   const [title, setTitle] = useState("");
   const servicekey =
@@ -23,7 +22,7 @@ const Single = () => {
           width: "100%",
           height: "30vh",
         }}
-        defaultCenter={{ lat: mapy, lng: mapx }}
+        defaultCenter={{ lat: array[0].mapy, lng: array[0].mapx }}
         defaultZoom={16}
       />
     );
