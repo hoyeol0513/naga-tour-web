@@ -30,7 +30,7 @@ const DomNavBar = () => {
                 Home
               </Link>
               <Link to="/about" className="nav-item nav-link">
-                About
+                Festival
               </Link>
               <Link to="/service" className="nav-item nav-link">
                 Service
