@@ -46,6 +46,11 @@ const DomMetaTag = () => {
           rel="stylesheet"
           href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css"
         ></link>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico"></link>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+          rel="stylesheet"
+        />
       </Helmet>
     </div>
   );
