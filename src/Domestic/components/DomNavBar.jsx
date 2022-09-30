@@ -26,7 +26,7 @@ const DomNavBar = () => {
             id="navbarCollapse"
           >
             <div className="navbar-nav m-auto py-0">
-              <Link to="/submain" className="nav-item nav-link">
+              <Link to="/" className="nav-item nav-link">
                 Home
               </Link>
               <Link to="/about" className="nav-item nav-link">
