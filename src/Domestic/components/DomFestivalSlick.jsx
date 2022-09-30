@@ -144,7 +144,7 @@ const DomFestivalSlick = ({ CityCode }) => {
                                 {v.addr1} {v.addr2}
                               </span>
                               <a
-                                href={`/single/${v.contentid}/${v.contenttypeid}/${v.mapx}/${v.mapy}`}
+                                href={`/single/${v.contentid}/${v.contenttypeid}`}
                               >
                                 바로가기
                               </a>
