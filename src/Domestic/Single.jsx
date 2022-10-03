@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import DomMetaTag from "./components/DomMetaTag";
 import { Marker, NaverMap, RenderAfterNavermapsLoaded } from "react-naver-maps";
-
+import Styles from "./css/style.css";
 const Single = () => {
   const { contentid, contenttypeid } = useParams();
   const [array, setArray] = useState([]);
@@ -17,10 +17,13 @@ const Single = () => {
   function NaverMapComponent() {
     return (
       <NaverMap
+        className="shadow bg-body rounded"
         mapDivId={"react-naver-map"}
         style={{
           width: "100%",
           height: "30vh",
+          marginBottom: "10px",
+          marginTop: "10px",
         }}
         defaultCenter={{ lat: array[0].mapy, lng: array[0].mapx }}
         defaultZoom={16}
@@ -80,13 +83,19 @@ const Single = () => {
               <img
                 className="shadow-lg bg-body rounded"
                 src={v.firstimage}
-                style={{ marginRight: "50px" }}
+                style={{
+                  marginRight: "50px",
+                  width: "500px",
+                  height: "600px",
+                  marginBottom: "50px",
+                  boxShadow: "initial",
+                }}
               ></img>
               <div style={{ width: "500px" }}>
-                <h1>{v.title}</h1>
-                <div>{v.addr1}</div>
-                <div>{v.tel}</div>
+                <h1 id="KOTRALEAP">{v.title}</h1>
+
                 <div>{v.overview}</div>
+
                 <RenderAfterNavermapsLoaded
                   ncpClientId={`22kbpv25ll`}
                   error={<p>Maps Load Error</p>}
@@ -94,6 +103,12 @@ const Single = () => {
                 >
                   <NaverMapComponent />
                 </RenderAfterNavermapsLoaded>
+                <div className="text-secondary d-flex justify-content-end">
+                  주소 : {v.addr1}
+                </div>
+                <div className="text-secondary d-flex justify-content-end">
+                  tel : {v.tel}
+                </div>
                 <button type="button" className="btn btn-primary">
                   위시리스트에 저장
                 </button>

@@ -11,7 +11,10 @@ function App() {
         <Routes>
           <Route path="/" element={<SubMain />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/single" element={<Single />}></Route>
+          <Route
+            path="/single/:contentid/:contenttypeid"
+            element={<Single />}
+          ></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/price" element={<Price />}></Route>
         </Routes>

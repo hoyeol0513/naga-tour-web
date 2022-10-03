@@ -57,24 +57,24 @@ const DomLodSlick = ({ CityCode }) => {
     changeImage();
   }, [imageno]);
 
-  useEffect(() => {
-    async function changeImage() {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}`
-        );
-        setLod(response.data.response.body.items.item);
-        console.log("lod changed", lod);
-        console.log(CityCode);
-        console.log("--------------------------");
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    changeImage();
-  }, [CityCode, imageno]);
+  // useEffect(() => {
+  //   async function changeImage() {
+  //     setLoading(true);
+  //     try {
+  //       const response = await axios.get(
+  //         `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}`
+  //       );
+  //       setLod(response.data.response.body.items.item);
+  //       console.log("lod changed", lod);
+  //       console.log(CityCode);
+  //       console.log("--------------------------");
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   changeImage();
+  // }, [CityCode, imageno]);
 
   return (
     <div className="border border-top-0">
