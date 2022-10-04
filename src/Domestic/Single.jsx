@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import DomMetaTag from "./components/DomMetaTag";
+import DomFooter from "./components/DomFooter";
 import { Marker, NaverMap, RenderAfterNavermapsLoaded } from "react-naver-maps";
 import Styles from "./css/style.css";
 const Single = () => {
@@ -24,6 +25,7 @@ const Single = () => {
           height: "30vh",
           marginBottom: "10px",
           marginTop: "10px",
+          border: "solid rgba(0,0,0,0.1) 2px",
         }}
         defaultCenter={{ lat: array[0].mapy, lng: array[0].mapx }}
         defaultZoom={16}
@@ -78,23 +80,61 @@ const Single = () => {
                 </div>
               </div>
             </div>
-
-            <div className="d-flex justify-content-center">
+            <div>
+              <h6 className="text-center text-primary" id="KOTRALEAP">
+                Detailed information
+              </h6>
+              <h1
+                className="text-dark font-weight-bold text-center pb-3 border border-top-0 border-left-0 border-right-0"
+                id="KOTRALEAP"
+              >
+                상세 정보
+              </h1>
+            </div>
+            <div
+              className="d-flex justify-content-center mx-auto"
+              style={{
+                backgroundColor: "rgba(0,0,0,0.2)",
+                width: "1200px",
+                borderRadius: "30px",
+                padding: "20px",
+              }}
+            >
               <img
                 className="shadow-lg bg-body rounded"
                 src={v.firstimage}
                 style={{
-                  marginRight: "50px",
+                  marginRight: "10px",
                   width: "500px",
                   height: "600px",
                   marginBottom: "50px",
-                  boxShadow: "initial",
                 }}
               ></img>
-              <div style={{ width: "500px" }}>
-                <h1 id="KOTRALEAP">{v.title}</h1>
+              <div
+                style={{
+                  width: "500px",
+                }}
+              >
+                <h2
+                  id="KOTRALEAP"
+                  style={{
+                    width: "500px",
+                    textAlign: "center",
+                    whiteSpace: "nowrap",
+                    overflow: "auto",
+                  }}
+                >
+                  {v.title}
+                </h2>
 
-                <div>{v.overview}</div>
+                <div
+                  style={{
+                    height: "150px",
+                    overflow: "auto",
+                  }}
+                >
+                  {v.overview}
+                </div>
 
                 <RenderAfterNavermapsLoaded
                   ncpClientId={`22kbpv25ll`}
@@ -117,6 +157,9 @@ const Single = () => {
           </div>
         ))}
       </body>
+      <footer>
+        <DomFooter />
+      </footer>
     </div>
   );
 };
