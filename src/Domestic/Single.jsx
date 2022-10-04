@@ -22,7 +22,7 @@ const Single = () => {
         mapDivId={"react-naver-map"}
         style={{
           width: "100%",
-          height: "30vh",
+          height: "35vh",
           marginBottom: "10px",
           marginTop: "10px",
           border: "solid rgba(0,0,0,0.1) 2px",
@@ -64,37 +64,17 @@ const Single = () => {
       <body>
         {array.map((v) => (
           <div>
-            <div
-              className="jumbotron jumbotron-fluid mb-5"
-              style={{
-                backgroundSize: "100%",
-              }}
-            >
-              <div className="container text-center py-5">
-                <h2 className="text-white display-4"></h2>
-
-                <div className="mx-auto">
-                  <div className="input-group">
-                    <div className="input-group-append"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div>
-              <h6 className="text-center text-primary" id="KOTRALEAP">
-                Detailed information
-              </h6>
               <h1
-                className="text-dark font-weight-bold text-center pb-3 border border-top-0 border-left-0 border-right-0"
+                className="text-dark font-weight-bold text-center pt-5"
                 id="KOTRALEAP"
               >
-                상세 정보
+                {v.title}
               </h1>
             </div>
             <div
               className="d-flex justify-content-center mx-auto"
               style={{
-                backgroundColor: "rgba(0,0,0,0.2)",
                 width: "1200px",
                 borderRadius: "30px",
                 padding: "20px",
@@ -105,8 +85,8 @@ const Single = () => {
                 src={v.firstimage}
                 style={{
                   marginRight: "10px",
-                  width: "500px",
-                  height: "600px",
+                  width: "600px",
+                  height: "700px",
                   marginBottom: "50px",
                 }}
               ></img>
@@ -115,21 +95,9 @@ const Single = () => {
                   width: "500px",
                 }}
               >
-                <h2
-                  id="KOTRALEAP"
-                  style={{
-                    width: "500px",
-                    textAlign: "center",
-                    whiteSpace: "nowrap",
-                    overflow: "auto",
-                  }}
-                >
-                  {v.title}
-                </h2>
-
                 <div
                   style={{
-                    height: "150px",
+                    height: "250px",
                     overflow: "auto",
                   }}
                 >
