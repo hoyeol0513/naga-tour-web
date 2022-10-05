@@ -7,7 +7,6 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 const List = () => {
   const [array, setArray] = useState([]);
-  const [arrayLength, setArrayLength] = useState(0);
   const [si, setSi] = useState([]);
   const [city, setCity] = useState("");
   const [cityCode, setCityCode] = useState(1);
@@ -15,6 +14,7 @@ const List = () => {
   const serviceKey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
   const { keyword, contenttypeid } = useParams();
+
   useEffect(() => {
     console.log(keyword);
     console.log(contenttypeid);
@@ -24,13 +24,34 @@ const List = () => {
           `https://apis.data.go.kr/B551011/KorService/searchKeyword?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}`
         );
         setArray(response.data.response.body.items.item);
-        setArrayLength(Math.round(array.length / 10));
       } catch (error) {
         console.log(error);
       }
     }
     getImage();
   }, []);
+
+  useEffect(() => {
+    async function getImage() {
+      try {
+        if (cityCode !== 0) {
+          const response = await axios.get(
+            `https://apis.data.go.kr/B551011/KorService/searchKeyword?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}&areaCode=${cityCode}`
+          );
+          setArray(response.data.response.body.items.item);
+        }
+        if (cityCode === 0) {
+          const response = await axios.get(
+            `https://apis.data.go.kr/B551011/KorService/searchKeyword?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}`
+          );
+          setArray(response.data.response.body.items.item);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getImage();
+  }, [cityCode]);
 
   useEffect(() => {
     async function getSi() {
@@ -46,23 +67,44 @@ const List = () => {
     }
     getSi();
   }, []);
+
+  const checkOnlyOne = (checkThis) => {
+    const checkboxes = document.getElementsByName("checkcitiy");
+
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i] !== checkThis) {
+        checkboxes[i].checked = false;
+      }
+    }
+
+    if (!checkThis.checked) {
+      setCityCode(0);
+      setCity("");
+    }
+  };
+
   return (
     <>
       <DomNavBar />
       <Helmet>
         <title>당신의 여행 도우미 NAGA | List</title>
       </Helmet>
-      <button
-        onClick={() => {
-          console.log("길이는", arrayLength);
-          console.log(array);
-        }}
-      >
-        확인
-      </button>
+
+      {array ? (
+        <h2 className=" ml-3 my-4">
+          <span className="text-warning">{city}</span> 검색결과 :
+          <span className="text-primary">{keyword}</span> ({array.length} 개)
+        </h2>
+      ) : (
+        <h2 className=" ml-3 my-4">
+          <span className="text-warning">{city}</span> 검색결과 :
+          <span className="text-primary">{keyword}</span> (0 개)
+        </h2>
+      )}
       <div className="d-flex">
+        {/* City */}
         <div className="mt-5 ml-3 mt-lg-0">
-          <div className="mb-5">
+          <div className="mb-5 border pt-2 pb-2">
             <h3 className="ml-3 mb-2">Cities</h3>
 
             <div
@@ -75,6 +117,14 @@ const List = () => {
               {si.map((v, index) => (
                 <div className="form-check">
                   <input
+                    onChange={(e) => {
+                      checkOnlyOne(e.target);
+                      if (v.code !== cityCode) {
+                        setCityCode(v.code);
+                        setCity(v.name);
+                      }
+                    }}
+                    name="checkcitiy"
                     class="form-check-input"
                     type="checkbox"
                     value=""
@@ -91,6 +141,8 @@ const List = () => {
             </div>
           </div>
         </div>
+
+        {/* search list */}
         <div className="container">
           <div className="row">
             {array ? (
