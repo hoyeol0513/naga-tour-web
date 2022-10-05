@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SubMain from "./Domestic/DomMain";
-import Blog from "./Domestic/Blog";
 import Single from "./Domestic/Single";
 import About from "./Domestic/About";
 import Price from "./Domestic/Price";
+import List from "./Domestic/List";
 function App() {
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" element={<SubMain />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/list/:contenttypeid/:keyword" element={<List />} />
           <Route
             path="/single/:contentid/:contenttypeid"
             element={<Single />}
