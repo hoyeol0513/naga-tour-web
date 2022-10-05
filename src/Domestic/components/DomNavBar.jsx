@@ -40,7 +40,9 @@ const DomNavBar = () => {
               <form
                 className="w-100"
                 onSubmit={() => {
-                  Navigate(`/list/${select}/${data}`);
+                  if (data !== "") {
+                    Navigate(`/list/${select}/${data}`);
+                  }
                 }}
               >
                 {/* <h1 className="text-white display-3">Home</h1> */}
