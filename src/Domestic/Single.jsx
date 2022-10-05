@@ -66,8 +66,11 @@ const Single = () => {
           <div>
             <div>
               <h1
-                className="text-dark font-weight-bold text-center pt-5"
+                className="text-dark font-weight-bold text-center pt-5 pb-2 d-flex mx-auto justify-content-center"
                 id="KOTRALEAP"
+                style={{
+                  width: "1200px",
+                }}
               >
                 {v.title}
               </h1>
@@ -77,7 +80,6 @@ const Single = () => {
               style={{
                 width: "1200px",
                 borderRadius: "30px",
-                padding: "20px",
               }}
             >
               <img

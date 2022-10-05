@@ -1,8 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
 const DomNavBar = () => {
+  const [select, setSelect] = useState(12);
+  const [data, setData] = useState("");
+  const Navigate = useNavigate();
+  const onChangeSelect = (e) => {
+    setSelect(e.target.value);
+  };
+
+  const onChangeText = (e) => {
+    setData(e.target.value);
+  };
+
   return (
     <div>
       <DomMetaTag />
@@ -26,26 +37,37 @@ const DomNavBar = () => {
             id="navbarCollapse"
           >
             <div className="container text-start">
-              {/* <h1 className="text-white display-3">Home</h1> */}
-              <div className="input-group w-75 ">
-                <div className="d-inline-flex">
-                  <select
-                    className="d-inline-flex form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected>선택</option>
-                    <option value="1">관광 & 문화</option>
-                    <option value="2">축제</option>
-                    <option value="3">숙박</option>
-                    <option value="4">음식</option>
-                  </select>
+              <form
+                className="w-100"
+                onSubmit={() => {
+                  Navigate(`/list/${select}/${data}`);
+                }}
+              >
+                {/* <h1 className="text-white display-3">Home</h1> */}
+                <div className="input-group w-75">
+                  <div className="d-inline-flex ">
+                    <select
+                      className="d-inline-flex form-select"
+                      aria-label="Default select example"
+                      value={data.select}
+                      onChange={onChangeSelect}
+                    >
+                      <option value="12">관광</option>
+                      <option value="14">문화</option>
+                      <option value="15">축제</option>
+                      <option value="32">숙박</option>
+                      <option value="39">음식</option>
+                    </select>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Text input with dropdown button"
+                    value={data.text}
+                    onChange={onChangeText}
+                  />
                 </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="Text input with dropdown button"
-                />
-              </div>
+              </form>
             </div>
             {/* <div className="navbar-nav m-auto py-0">
               <Link to="/" className="nav-item nav-link">

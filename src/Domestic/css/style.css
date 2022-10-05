@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+.jumbotron {
+  background: url("https://thumb.photo-ac.com/90/9034e044cc36a4e0b428931defd6f8f1_t.jpeg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #KOTRALEAP {
   font-family: "KOTRALEAP";
 }

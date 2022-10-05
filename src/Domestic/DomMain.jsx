@@ -69,7 +69,7 @@ const DomMain = () => {
       <DomRentSlick CityName={city} />
 
       {/* 글귀 */}
-      <section className="py-2">
+      <section className="py-5">
         <div className="container px-5 my-2 px-5">
           <div className="text-center mb-4">
             <h1
