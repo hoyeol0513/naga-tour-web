@@ -5,11 +5,12 @@ import DomFooter from "./components/DomFooter";
 import { useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+
 const List = () => {
   const [array, setArray] = useState([]);
   const [si, setSi] = useState([]);
   const [city, setCity] = useState("");
-  const [cityCode, setCityCode] = useState(1);
+  const [cityCode, setCityCode] = useState(0);
 
   const serviceKey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
@@ -93,7 +94,7 @@ const List = () => {
       {array ? (
         <h2 className=" ml-3 my-4">
           <span className="text-warning">{city}</span> 검색결과 :
-          <span className="text-primary">{keyword}</span> ({array.length} 개)
+          <span className="text-primary"> {keyword}</span> ({array.length} 개)
         </h2>
       ) : (
         <h2 className=" ml-3 my-4">
@@ -156,16 +157,22 @@ const List = () => {
                       >
                         <div className="col-md-12 mb-3">
                           <div className="mb-3 border shadow">
-                            <div className="d-flex">
+                            <div className="d-flex imgbox">
                               {v.firstimage ? (
                                 <img
                                   src={v.firstimage}
                                   style={{ width: "100px", height: "100px" }}
                                   alt="이미지"
+                                  className="rounded-lg"
                                 ></img>
                               ) : (
                                 <div
-                                  style={{ width: "100px", height: "100px" }}
+                                  className="notimg rounded-lg"
+                                  style={{
+                                    width: "100px",
+                                    height: "100px",
+                                    backgroundColor: "#fff",
+                                  }}
                                 ></div>
                               )}
                               <div className="ml-2 mt-1">

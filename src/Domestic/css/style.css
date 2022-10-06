@@ -23,6 +23,23 @@
   font-family: "KOTRALEAP";
 }
 
+.imgbox:not(:hover) > .notimg{
+  transition: all 0.2s linear;
+  transform: scale(1);
+}
+.imgbox:hover > .notimg{
+  transition: all 0.2s linear;
+  transform:scale(1.2);
+}
+
+.imgbox:not(:hover) > img{
+  transition: all 0.2s linear;
+  transform: scale(1);
+}
+.imgbox:hover > img  {
+  transition: all 0.2s linear;
+  transform:scale(1.2);
+}
 
 .slick-active {
   z-index: 2;
