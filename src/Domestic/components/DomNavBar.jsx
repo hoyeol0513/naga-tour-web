@@ -40,7 +40,7 @@ const DomNavBar = () => {
               <form
                 className="w-100"
                 onSubmit={() => {
-                  if (data !== "") {
+                  if (data.trim() !== "") {
                     Navigate(`/list/${select}/${data}`);
                   }
                 }}
@@ -68,6 +68,7 @@ const DomNavBar = () => {
                     value={data.text}
                     onChange={onChangeText}
                   />
+                  <button className="btn btn-outline-secondary">검색</button>
                 </div>
               </form>
             </div>
