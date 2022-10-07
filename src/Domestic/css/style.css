@@ -32,14 +32,29 @@
   transform:scale(1.2);
 }
 
-.imgbox:not(:hover) > img{
-  transition: all 0.2s linear;
-  transform: scale(1);
+.itembox:hover{
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 10px 10px rgba(0, 0, 0, .1);
 }
-.imgbox:hover > img  {
+
+
+.imgbox{
+  width:120px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.itembox:hover > .imgbox > img  {
   transition: all 0.2s linear;
   transform:scale(1.2);
 }
+
+.itembox:not(:hover) > .imgbox > img{
+  transition: all 0.2s linear;
+  transform: scale(1);
+}
+
 
 .slick-active {
   z-index: 2;
