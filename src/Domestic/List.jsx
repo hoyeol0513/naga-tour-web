@@ -157,20 +157,22 @@ const List = () => {
                       >
                         <div className="col-md-12 mb-3">
                           <div className="mb-3 border shadow">
-                            <div className="d-flex imgbox">
+                            <div className="d-flex itembox">
                               {v.firstimage ? (
-                                <img
-                                  src={v.firstimage}
-                                  style={{ width: "100px", height: "100px" }}
-                                  alt="이미지"
-                                  className="rounded-lg"
-                                ></img>
+                                <div className="imgbox">
+                                  <img
+                                    src={v.firstimage}
+                                    style={{ width: "120px", height: "120px" }}
+                                    alt="이미지"
+                                    className="rounded-lg"
+                                  ></img>
+                                </div>
                               ) : (
                                 <div
                                   className="notimg rounded-lg"
                                   style={{
-                                    width: "100px",
-                                    height: "100px",
+                                    width: "120px",
+                                    height: "120px",
                                     backgroundColor: "#fff",
                                   }}
                                 ></div>
