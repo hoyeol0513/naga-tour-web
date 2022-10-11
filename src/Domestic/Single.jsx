@@ -103,7 +103,7 @@ const Single = () => {
                     overflow: "auto",
                   }}
                 >
-                  {v.overview}
+                  {v.overview.split("<br>")}
                 </div>
 
                 <RenderAfterNavermapsLoaded
