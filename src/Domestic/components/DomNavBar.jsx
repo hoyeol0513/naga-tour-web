@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
+import { useEffect } from "react";
+import axios from "axios";
 const DomNavBar = () => {
   const [select, setSelect] = useState(12);
   const [data, setData] = useState("");
+
   const Navigate = useNavigate();
   const onChangeSelect = (e) => {
     setSelect(e.target.value);
@@ -17,6 +20,7 @@ const DomNavBar = () => {
   return (
     <div>
       <DomMetaTag />
+
       <div className="container-fluid p-0 border border-top-0 pb-2">
         <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
           <Link to="/" className="navbar-brand ml-lg-3">
@@ -24,6 +28,7 @@ const DomNavBar = () => {
               <i className="fa fa-1x fa-plane text-blue pr-2"></i>NAGA
             </h1>
           </Link>
+
           <button
             type="button"
             className="navbar-toggler"
@@ -47,7 +52,7 @@ const DomNavBar = () => {
               >
                 {/* <h1 className="text-white display-3">Home</h1> */}
                 <div className="input-group w-75">
-                  <div className="d-inline-flex ">
+                  <div className="d-inline-flex">
                     <select
                       className="d-inline-flex form-select"
                       aria-label="Default select example"

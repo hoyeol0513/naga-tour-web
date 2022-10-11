@@ -88,7 +88,7 @@ const List = () => {
     <>
       <DomNavBar />
       <Helmet>
-        <title>당신의 여행 도우미 NAGA | List</title>
+        <title>당신의 여행 도우미 NAGA | {keyword}</title>
       </Helmet>
 
       {array ? (
@@ -162,7 +162,7 @@ const List = () => {
                                 <div className="imgbox">
                                   <img
                                     src={v.firstimage}
-                                    style={{ width: "120px", height: "120px" }}
+                                    style={{ width: "140px", height: "120px" }}
                                     alt="이미지"
                                     className="rounded-lg"
                                   ></img>
@@ -171,7 +171,7 @@ const List = () => {
                                 <div
                                   className="notimg rounded-lg"
                                   style={{
-                                    width: "120px",
+                                    width: "140px",
                                     height: "120px",
                                     backgroundColor: "#fff",
                                   }}
@@ -189,7 +189,14 @@ const List = () => {
                                 >
                                   {v.title}
                                 </div>
-                                <p>{v.addr1}</p>
+                                <p
+                                  style={{
+                                    width: "250px",
+                                    color: "rgba(128,128,128,1)",
+                                  }}
+                                >
+                                  {v.addr1}
+                                </p>
                               </div>
                             </div>
                           </div>
