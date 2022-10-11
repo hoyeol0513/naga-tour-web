@@ -14,6 +14,7 @@ const DomMain = () => {
   const [si, setSi] = useState([]);
   const [city, setCity] = useState("");
   const [cityCode, setCityCode] = useState(1);
+
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
   useEffect(() => {
@@ -30,15 +31,15 @@ const DomMain = () => {
     }
     getSi();
   }, []);
+
   return (
     <div>
       <DomMetaTag />
       <Helmet>
-        <title>당신의 여행 도우미 NAGA | DOMHOME</title>
+        <title>당신의 여행 도우미 NAGA | HOME</title>
       </Helmet>
 
       <DomNavBar />
-
       {/* //<LocationTable si={si} /> 
       <nav style={{ marginTop: "100px", textAlign: "center" }}>
         {si.map((v, index) => (

@@ -6,6 +6,7 @@ import About from "./Domestic/About";
 import Price from "./Domestic/Price";
 import List from "./Domestic/List";
 import Login from "./Domestic/Login";
+
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
             path="/single/:contentid/:contenttypeid"
             element={<Single />}
           ></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/price" element={<Price />}></Route>
         </Routes>
