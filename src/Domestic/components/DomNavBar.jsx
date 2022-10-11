@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
+import axios from 'axios';
 const DomNavBar = () => {
   const [select, setSelect] = useState(12);
   const [data, setData] = useState("");
   const Navigate = useNavigate();
+
   const onChangeSelect = (e) => {
     setSelect(e.target.value);
   };
@@ -90,7 +92,7 @@ const DomNavBar = () => {
               </Link>
             </div> */}
             <Link
-              to="/login"
+              to="/Login"
               className="btn btn-primary py-2 px-4 d-none d-lg-block"
             >
               LOGIN
