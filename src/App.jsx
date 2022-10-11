@@ -4,6 +4,7 @@ import Single from "./Domestic/Single";
 import About from "./Domestic/About";
 import Price from "./Domestic/Price";
 import List from "./Domestic/List";
+import MyPage from "./Domestic/components/MyPages";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
             path="/single/:contentid/:contenttypeid"
             element={<Single />}
           ></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/price" element={<Price />}></Route>
         </Routes>
