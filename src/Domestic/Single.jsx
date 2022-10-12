@@ -12,6 +12,20 @@ const Single = () => {
   const { contentid, contenttypeid } = useParams();
   const [array, setArray] = useState([]);
   const [title, setTitle] = useState("");
+
+  const wishCreate = async () => {
+    await axios.get("/api/create", {
+      params: {
+        title: `${array[0].title}`,
+        addr1: `${array[0].addr1}`,
+        img: `${array[0].firstimage}`,
+        tel: `${array[0].tel}`,
+        contentid: `${array[0].contentid}`,
+        contenttypeid: `${array[0].contenttypeid}`,
+      },
+    });
+  };
+
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
 
@@ -103,7 +117,7 @@ const Single = () => {
                     overflow: "auto",
                   }}
                 >
-                  {v.overview.split("<br>")}
+                  {v.overview}
                 </div>
 
                 <RenderAfterNavermapsLoaded
@@ -119,7 +133,12 @@ const Single = () => {
                 <div className="text-secondary d-flex justify-content-end">
                   tel : {v.tel}
                 </div>
-                <button type="button" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={wishCreate}
+                  method="post"
+                >
                   위시리스트에 저장
                 </button>
               </div>
@@ -127,9 +146,7 @@ const Single = () => {
           </div>
         ))}
       </body>
-      <footer>
-        <DomFooter />
-      </footer>
+      <DomFooter />
     </div>
   );
 };
