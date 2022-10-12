@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import DomMetaTag from "./DomMetaTag";
 import DomNavBar from "./DomNavBar";
+import Styles from "../css/style.css";
 const MyPages = () => {
   const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
@@ -20,7 +21,7 @@ const MyPages = () => {
       <DomNavBar />
       <table className="table">
         <thead>
-          <tr>
+          <tr className="text-center table-secondary">
             <td scope="col">#</td>
             <td></td>
             <td scope="col">이름</td>
@@ -30,13 +31,13 @@ const MyPages = () => {
         </thead>
         <tbody>
           {wishlist.map((data, index) => (
-            <tr className="">
+            <tr>
               <td
-                className="col-1 text-center"
+                className="text-center col-1 table-secondary"
                 key={index}
-                style={{ alignItems: "center" }}
+                style={{ verticalAlign: "middle" }}
               >
-                {data.id}
+                <h1 className="text-secondary">{data.id}</h1>
               </td>
               <td className="col-1">
                 <img
@@ -44,11 +45,15 @@ const MyPages = () => {
                   style={{ width: "200px", height: "200px" }}
                 />
               </td>
-              <td className="col-5 text-center">
+              <td className="text-center" style={{ verticalAlign: "middle" }}>
                 <h3>{data.title}</h3>
               </td>
-              <td className="col-2">{data.addr1}</td>
-              <td className="col-1">{data.tel}</td>
+              <td className="text-center" style={{ verticalAlign: "middle" }}>
+                {data.addr1}
+              </td>
+              <td className="text-center" style={{ verticalAlign: "middle" }}>
+                {data.tel}
+              </td>
             </tr>
           ))}
         </tbody>
