@@ -6,6 +6,7 @@ import Price from "./Domestic/Price";
 import List from "./Domestic/List";
 import Login from "./Domestic/Login";
 import MyPages from "./Domestic/components/MyPages";
+import Join from "./Domestic/Join";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             path="/single/:contentid/:contenttypeid"
             element={<Single />}
           ></Route>
+          <Route path="/signup" element={<Join />}></Route>
           <Route path="/mypage" element={<MyPages />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/price" element={<Price />}></Route>

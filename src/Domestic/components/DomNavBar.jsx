@@ -3,10 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
 
-import axios from 'axios';
+import axios from "axios";
 
 import { useEffect } from "react";
-
 
 const DomNavBar = () => {
   const [select, setSelect] = useState(12);
@@ -99,12 +98,20 @@ const DomNavBar = () => {
                 Pages
               </Link>
             </div> */}
-            <Link
-              to="/Login"
-              className="btn btn-primary py-2 px-4 d-none d-lg-block"
-            >
-              LOGIN
-            </Link>
+            <div className="d-flex gap-2">
+              <Link
+                to="/Login"
+                className="btn btn-primary py-2 px-4 d-none d-lg-block"
+              >
+                LOGIN
+              </Link>
+              <Link
+                to="/signup"
+                className="btn btn-primary py-2 px-4 d-none d-lg-block"
+              >
+                SIGNUP
+              </Link>
+            </div>
           </div>
         </nav>
       </div>

@@ -7,7 +7,7 @@ const MyPages = () => {
   const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8081/api/sbb")
+      .get("api/sbb")
       .then((response) => {
         setWishlist(response.data);
       })
@@ -30,7 +30,7 @@ const MyPages = () => {
         </thead>
         <tbody>
           {wishlist.map((data, index) => (
-            <tr className="row">
+            <tr className="">
               <td
                 className="col-1 text-center"
                 key={index}
