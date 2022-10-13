@@ -12,20 +12,7 @@ const Single = () => {
   const { contentid, contenttypeid } = useParams();
   const [array, setArray] = useState([]);
   const [title, setTitle] = useState("");
-
-  const wishCreate = async () => {
-    await axios.get("/api/create", {
-      params: {
-        title: `${array[0].title}`,
-        addr1: `${array[0].addr1}`,
-        img: `${array[0].firstimage}`,
-        tel: `${array[0].tel}`,
-        contentid: `${array[0].contentid}`,
-        contenttypeid: `${array[0].contenttypeid}`,
-      },
-    });
-  };
-
+  const [wishLen, setWishLen] = useState(0);
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
 
@@ -52,6 +39,7 @@ const Single = () => {
       </NaverMap>
     );
   }
+
   useEffect(() => {
     async function getImage() {
       try {
@@ -65,6 +53,58 @@ const Single = () => {
     }
     getImage();
   }, []);
+
+  useEffect(() => {
+    if (array.length !== 0) {
+      async function getItem() {
+        await axios
+          .get(`/api/item`, {
+            params: {
+              contentid: `${array[0].contentid}`,
+            },
+          })
+          .then((res) => {
+            setWishLen(res.data.length);
+          });
+      }
+      getItem();
+    }
+  }, [array]);
+
+  async function getItem() {
+    await axios
+      .get(`/api/item`, {
+        params: {
+          contentid: `${array[0].contentid}`,
+        },
+      })
+      .then((res) => {
+        setWishLen(res.data.length);
+      });
+  }
+
+  const wishCreate = async () => {
+    await axios.get("/api/create", {
+      params: {
+        title: `${array[0].title}`,
+        addr1: `${array[0].addr1}`,
+        img: `${array[0].firstimage}`,
+        tel: `${array[0].tel}`,
+        contentid: `${array[0].contentid}`,
+        contenttypeid: `${array[0].contenttypeid}`,
+      },
+    });
+    getItem();
+  };
+
+  function deleteWish() {
+    axios.get(`/api/delete`, {
+      params: {
+        contentid: `${array[0].contentid}`,
+      },
+    });
+    getItem();
+  }
 
   return (
     <div>
@@ -133,14 +173,25 @@ const Single = () => {
                 <div className="text-secondary d-flex justify-content-end">
                   tel : {v.tel}
                 </div>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={wishCreate}
-                  method="post"
-                >
-                  위시리스트에 저장
-                </button>
+                {wishLen > 0 ? (
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    method="post"
+                    onClick={deleteWish}
+                  >
+                    위시리스트 삭제
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={wishCreate}
+                    method="post"
+                  >
+                    위시리스트 저장
+                  </button>
+                )}
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import "./css/Loginpage.css";
 import Logo from "./img/logo.png";
 
@@ -7,6 +8,9 @@ const Join = () => {
     <div className="main-container">
       <div className="main-wrap">
         <header>
+          <Helmet>
+            <title>당신의 여행 도우미 NAGA | SIGNUP</title>
+          </Helmet>
           <div className="logo-wrap">
             <a href="http://localhost:3000">
               <img src={Logo} />

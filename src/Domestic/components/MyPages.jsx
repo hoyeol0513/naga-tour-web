@@ -4,11 +4,16 @@ import axios from "axios";
 import DomMetaTag from "./DomMetaTag";
 import DomNavBar from "./DomNavBar";
 import Styles from "../css/style.css";
+import { useNavigate } from "react-router-dom";
+import DomFooter from "./DomFooter";
+import { Helmet } from "react-helmet-async";
 const MyPages = () => {
   const [wishlist, setWishlist] = useState([]);
+
+  const pageClick = useNavigate();
   useEffect(() => {
     axios
-      .get("api/sbb")
+      .get("api/items")
       .then((response) => {
         setWishlist(response.data);
       })
@@ -17,8 +22,14 @@ const MyPages = () => {
 
   return (
     <div>
+      <header>
+        <Helmet>
+          <title>당신의 여행 도우미 NAGA | MYPAGE</title>
+        </Helmet>
+      </header>
       <DomMetaTag />
       <DomNavBar />
+
       <table className="table">
         <thead>
           <tr className="text-center table-secondary">
@@ -31,7 +42,13 @@ const MyPages = () => {
         </thead>
         <tbody>
           {wishlist.map((data, index) => (
-            <tr>
+            <tr
+              style={{ cursor: "pointer" }}
+              className="click"
+              onClick={() => {
+                pageClick(`single/${data.contentid}/${data.contenttypeid}`);
+              }}
+            >
               <td
                 className="text-center col-1 table-secondary"
                 key={index}
@@ -58,6 +75,7 @@ const MyPages = () => {
           ))}
         </tbody>
       </table>
+      <DomFooter />
     </div>
   );
 };
