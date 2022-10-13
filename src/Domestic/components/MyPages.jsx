@@ -32,8 +32,8 @@ const MyPages = () => {
 
       <table className="table">
         <thead>
-          <tr className="text-center table-secondary">
-            <td scope="col">#</td>
+          <tr className="text-center table-warning">
+            <td scope="col">타입</td>
             <td></td>
             <td scope="col">이름</td>
             <td scope="col">주소</td>
@@ -54,7 +54,17 @@ const MyPages = () => {
                 key={index}
                 style={{ verticalAlign: "middle" }}
               >
-                <h1 className="text-secondary">{data.id}</h1>
+                <h2 className="text-secondary">
+                  {data.contenttypeid == "12"
+                    ? "관광"
+                    : data.contenttypeid == "14"
+                    ? "문화"
+                    : data.contenttypeid == "15"
+                    ? "축제"
+                    : data.contenttypeid == "32"
+                    ? "숙박"
+                    : "음식"}
+                </h2>
               </td>
               <td className="col-1">
                 <img
