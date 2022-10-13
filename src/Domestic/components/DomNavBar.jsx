@@ -10,7 +10,7 @@ import { useEffect } from "react";
 const DomNavBar = () => {
   const [select, setSelect] = useState(12);
   const [data, setData] = useState("");
-
+  const [login, setLogin] = useState("");
   const Navigate = useNavigate();
 
   const onChangeSelect = (e) => {
@@ -23,6 +23,13 @@ const DomNavBar = () => {
 
   return (
     <div>
+      <button
+        onClick={() => {
+          login === "" ? setLogin(2) : setLogin("");
+        }}
+      >
+        로그인 테스트
+      </button>
       <DomMetaTag />
 
       <div className="container-fluid p-0 border border-top-0 pb-2">
@@ -81,37 +88,37 @@ const DomNavBar = () => {
                 </div>
               </form>
             </div>
-            {/* <div className="navbar-nav m-auto py-0">
-              <Link to="/" className="nav-item nav-link">
-                Home
-              </Link>
-              <Link to="/about" className="nav-item nav-link">
-                Festival
-              </Link>
-              <Link to="/service" className="nav-item nav-link">
-                Service
-              </Link>
-              <Link to="/price" className="nav-item nav-link">
-                Price
-              </Link>
-              <Link to="/blog" className="nav-item nav-link">
-                Pages
-              </Link>
-            </div> */}
-            <div className="d-flex gap-2">
-              <Link
-                to="/Login"
-                className="btn btn-primary py-2 px-4 d-none d-lg-block"
-              >
-                LOGIN
-              </Link>
-              <Link
-                to="/signup"
-                className="btn btn-primary py-2 px-4 d-none d-lg-block"
-              >
-                SIGNUP
-              </Link>
-            </div>
+            {login === "" ? (
+              <div className="d-flex gap-2">
+                <Link
+                  to="/Login"
+                  className="btn btn-white py-2 px-4 d-none d-lg-block"
+                >
+                  LOGIN
+                </Link>
+                <Link
+                  to="/signup"
+                  className="btn btn-White py-2 px-4 d-none d-lg-block"
+                >
+                  SIGNUP
+                </Link>
+              </div>
+            ) : (
+              <div className="d-flex gap-2">
+                <Link
+                  to="/mypage"
+                  className="btn btn-white py-2 px-4 d-none d-lg-block"
+                >
+                  MYPAGE
+                </Link>
+                <Link
+                  to="/"
+                  className="btn btn-White py-2 px-4 d-none d-lg-block"
+                >
+                  LOGOUT
+                </Link>
+              </div>
+            )}
           </div>
         </nav>
       </div>

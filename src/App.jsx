@@ -20,6 +20,10 @@ function App() {
             path="/single/:contentid/:contenttypeid"
             element={<Single />}
           ></Route>
+          <Route
+            path="/mypage/single/:contentid/:contenttypeid"
+            element={<Single />}
+          ></Route>
           <Route path="/signup" element={<Join />}></Route>
           <Route path="/mypage" element={<MyPages />}></Route>
           <Route path="/about" element={<About />}></Route>
