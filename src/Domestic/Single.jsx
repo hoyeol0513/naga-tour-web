@@ -86,7 +86,7 @@ const Single = () => {
   const wishCreate = async () => {
     await axios.get("/api/create", {
       params: {
-        title: `${array[0].title}`,
+        title: `${array[0].title}`.replace("[", " ").replace("]", " "),
         addr1: `${array[0].addr1}`,
         img: `${array[0].firstimage}`,
         tel: `${array[0].tel}`,
@@ -94,6 +94,7 @@ const Single = () => {
         contenttypeid: `${array[0].contenttypeid}`,
       },
     });
+    alert("위시리스트에 저장되었습니다.");
     getItem();
   };
 
@@ -103,6 +104,7 @@ const Single = () => {
         contentid: `${array[0].contentid}`,
       },
     });
+    alert("위시리스트에서 삭제되었습니다.");
     getItem();
   }
 
