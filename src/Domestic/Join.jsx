@@ -38,13 +38,16 @@ const Join = () => {
   const [suColor, setSuColor] = useState("red");
 
   const onChangeId = (e) => {
-    setId(e.target.value);
-    if (e.target.value.length < 4 || e.target.value.length > 12) {
+    const IdRegex = /^[A-Za-z]{1}[[A-Za-z0-9_-]{3,19}$/;
+    const Idcurrent = e.target.value;
+    if(!IdRegex.test(Idcurrent)){
       setIdColor("red");
       setIdMessage("4글자 이상 12글자 미만으로 입력해주세요.");
-    } else {
+    } 
+    else {
       setIdColor("green");
       setIdMessage("✔️아이디 확인");
+      setId(e.target.value);
     }
   };
 
