@@ -1,9 +1,39 @@
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import "./css/Loginpage.css";
 import Logo from "./img/logo.png";
 
 const Login = () => {
+  const [userid, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const Navi = useNavigate();
+  const userLogin = () => {
+    axios
+      .get(`/user/login`, {
+        params: {
+          userid: userid,
+          password: password,
+        },
+      })
+      .then((res) => {
+        if (res.data !== "") {
+          console.log("로그인정보", res);
+          localStorage.setItem("user_id", userid);
+          alert("로그인성공");
+          Navi(-1);
+        } else {
+          localStorage.clear();
+          console.log("로그인실패");
+          alert(
+            "로그인에 실패하였습니다. \n아이디 또는 패스워드를 확인해주세요"
+          );
+        }
+      });
+  };
+
   return (
     <div className="main-container">
       <div className="main-wrap">
@@ -23,21 +53,37 @@ const Login = () => {
             </a>
           </div>
         </header>
+
         <section className="login-input-section-wrap">
           <div className="login-input-wrap">
-            <input placeholder="Username" type="text"></input>
+            <input
+              placeholder="Username"
+              type="text"
+              value={userid}
+              onChange={(e) => {
+                setUserId(e.target.value);
+              }}
+            ></input>
           </div>
           <div className="login-input-wrap password-wrap">
-            <input placeholder="Password" type="password"></input>
+            <input
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            ></input>
           </div>
           <div className="login-button-wrap">
-            <button>Sign in</button>
+            <button onClick={userLogin}>Sign in</button>
           </div>
           <div className="login-stay-sign-in">
             <i className="far fa-check-circle"></i>
             <span>Stay Signed in</span>
           </div>
         </section>
+
         <section className="Easy-sgin-in-wrap">
           <h2>Easier sign in</h2>
           <ul className="sign-button-list">

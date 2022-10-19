@@ -9,17 +9,34 @@ import DomFooter from "./DomFooter";
 import { Helmet } from "react-helmet-async";
 const MyPages = () => {
   const [wishlist, setWishlist] = useState([]);
-
+  const [userid, setUserid] = useState("");
   const pageClick = useNavigate();
   useEffect(() => {
+    setUserid(localStorage.getItem("user_id"));
+    // axios
+    //   .get("/api/user/item", {
+    //     params: {
+    //       userId: userid,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     setWishlist(response.data);
+    //   })
+    //   .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
     axios
-      .get("api/items")
+      .get("/api/user/item", {
+        params: {
+          userId: userid,
+        },
+      })
       .then((response) => {
         setWishlist(response.data);
       })
       .catch((error) => console.log(error));
-  }, []);
-
+  }, [userid]);
   return (
     <div>
       <header>
