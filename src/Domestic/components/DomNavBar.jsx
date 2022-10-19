@@ -6,6 +6,7 @@ import Styles from "../css/style.css";
 import axios from "axios";
 
 import { useEffect } from "react";
+import { confirmAlert } from "react-confirm-alert";
 
 const DomNavBar = () => {
   const [select, setSelect] = useState(12);
@@ -21,15 +22,19 @@ const DomNavBar = () => {
     setData(e.target.value);
   };
 
+  const userLogin = () => {
+    setLogin(localStorage.getItem("user_id"));
+  };
+
+  useEffect(() => {
+    userLogin();
+  }, []);
+
+  useEffect(() => {
+    setLogin(localStorage.getItem("user_id"));
+  }, [localStorage.getItem("user_id")]);
   return (
     <div>
-      <button
-        onClick={() => {
-          login === "" ? setLogin(2) : setLogin("");
-        }}
-      >
-        로그인 테스트
-      </button>
       <DomMetaTag />
 
       <div className="container-fluid p-0 border border-top-0 pb-2">
@@ -88,7 +93,7 @@ const DomNavBar = () => {
                 </div>
               </form>
             </div>
-            {login === "" ? (
+            {login === null ? (
               <div className="d-flex gap-2">
                 <Link
                   to="/Login"
@@ -114,6 +119,10 @@ const DomNavBar = () => {
                 <Link
                   to="/"
                   className="btn btn-White py-2 px-4 d-none d-lg-block"
+                  onClick={() => {
+                    alert("로그아웃 되었습니다");
+                    localStorage.clear();
+                  }}
                 >
                   LOGOUT
                 </Link>

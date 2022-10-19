@@ -40,11 +40,11 @@ const Join = () => {
   const onChangeId = (e) => {
     const IdRegex = /^[A-Za-z]{1}[[A-Za-z0-9_-]{3,19}$/;
     const Idcurrent = e.target.value;
-    if(!IdRegex.test(Idcurrent)){
+    setId(Idcurrent);
+    if (!IdRegex.test(Idcurrent)) {
       setIdColor("red");
       setIdMessage("4글자 이상 12글자 미만으로 입력해주세요.");
-    } 
-    else {
+    } else {
       setIdColor("green");
       setIdMessage("✔️아이디 확인");
       setId(e.target.value);
@@ -175,6 +175,7 @@ const Join = () => {
             <a href="http://localhost:3000">
               <img src={Logo} />
             </a>
+            <div className="text-primary">회원가입</div>
           </div>
         </header>
         <section className="login-input-section-wrap">

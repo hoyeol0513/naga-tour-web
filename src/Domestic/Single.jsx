@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import DomNavBar from "./components/DomNavBar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import DomMetaTag from "./components/DomMetaTag";
@@ -13,8 +13,22 @@ const Single = () => {
   const [array, setArray] = useState([]);
   const [title, setTitle] = useState("");
   const [wishLen, setWishLen] = useState(0);
+  const [userid, setUserid] = useState("");
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
+  const Navi = useNavigate();
+
+  const getUser = () => {
+    setUserid(localStorage.getItem("user_id"));
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  useEffect(() => {
+    setUserid(localStorage.getItem("user_id"));
+  }, [localStorage.getItem("user_id")]);
 
   function NaverMapComponent() {
     return (
@@ -84,28 +98,39 @@ const Single = () => {
   }
 
   const wishCreate = async () => {
-    await axios.get("/api/create", {
-      params: {
-        title: `${array[0].title}`.replace("[", " ").replace("]", " "),
-        addr1: `${array[0].addr1}`,
-        img: `${array[0].firstimage}`,
-        tel: `${array[0].tel}`,
-        contentid: `${array[0].contentid}`,
-        contenttypeid: `${array[0].contenttypeid}`,
-      },
-    });
-    alert("위시리스트에 저장되었습니다.");
-    getItem();
+    if (userid !== "") {
+      await axios.get("/api/create", {
+        params: {
+          title: `${array[0].title}`.replace("[", " ").replace("]", " "),
+          addr1: `${array[0].addr1}`,
+          img: `${array[0].firstimage}`,
+          tel: `${array[0].tel}`,
+          contentid: `${array[0].contentid}`,
+          contenttypeid: `${array[0].contenttypeid}`,
+          userId: userid,
+        },
+      });
+      alert("위시리스트에 저장되었습니다.");
+      getItem();
+    } else {
+      alert("로그인을 해주세요");
+      Navi(`/login`);
+    }
   };
 
   function deleteWish() {
-    axios.get(`/api/delete`, {
-      params: {
-        contentid: `${array[0].contentid}`,
-      },
-    });
-    alert("위시리스트에서 삭제되었습니다.");
-    getItem();
+    if (userid !== "") {
+      axios.get(`/api/delete`, {
+        params: {
+          contentid: `${array[0].contentid}`,
+        },
+      });
+      alert("위시리스트에서 삭제되었습니다.");
+      getItem();
+    } else {
+      alert("로그인을 해주세요");
+      Navi(`/login`);
+    }
   }
 
   return (
