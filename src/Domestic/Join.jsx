@@ -1,14 +1,11 @@
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 import React, { useState } from "react";
-import { useCallback } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/Loginpage.css";
 import Logo from "./img/logo.png";
 
 const Join = () => {
-  const [toggle, setToggle] = useState(true);
   const Navi = useNavigate();
   // 아이디, 비밀번호, 비밀번호 확인, 이메일, 전화번호 저장 & 확인
   const [id, setId] = useState("");
@@ -17,6 +14,9 @@ const Join = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [tell, setTell] = useState("");
+  const [code, setCode] = useState("");
+  const [codecheck, setCodecheck] = useState("");
+  const [isSent, setIsSent] = useState(false);
 
   // 오류메시지 상태 저장
   const [idMessage, setIdMessage] = useState("");
@@ -40,7 +40,6 @@ const Join = () => {
   const onChangeId = (e) => {
     const IdRegex = /^[A-Za-z]{1}[[A-Za-z0-9_-]{3,19}$/;
     const Idcurrent = e.target.value;
-    setId(Idcurrent);
     if (!IdRegex.test(Idcurrent)) {
       setIdColor("red");
       setIdMessage("4글자 이상 12글자 미만으로 입력해주세요.");
@@ -74,7 +73,7 @@ const Join = () => {
     setPasswordConfirm(passwordConfirmCurrent);
     if (
       password === passwordConfirmCurrent &&
-      passwordConfirmCurrent.length != 0
+      passwordConfirmCurrent.length !== 0
     ) {
       setPwcheckColor("green");
       setPasswordConfirmMessage("✔️비밀번호가 일치합니다.");
@@ -129,27 +128,38 @@ const Join = () => {
 
   useEffect(() => {
     if (
-      idColor == "green" &&
-      pwColor == "green" &&
-      pwcheckColor == "green" &&
-      nameColor == "green" &&
-      emailColor == "green" &&
-      telColor == "green"
+      idColor === "green" &&
+      pwColor === "green" &&
+      pwcheckColor === "green" &&
+      nameColor === "green" &&
+      emailColor === "green" &&
+      telColor === "green" &&
+      code === codecheck
     ) {
       setSuColor("blue");
     } else {
       setSuColor("red");
     }
-  }, [idColor, pwColor, pwcheckColor, nameColor, emailColor, telColor]);
+  }, [
+    idColor,
+    pwColor,
+    pwcheckColor,
+    nameColor,
+    emailColor,
+    telColor,
+    code,
+    codecheck,
+  ]);
 
   const CreateUser = () => {
     if (
-      idColor == "green" &&
-      pwColor == "green" &&
-      pwcheckColor == "green" &&
-      nameColor == "green" &&
-      emailColor == "green" &&
-      telColor == "green"
+      idColor === "green" &&
+      pwColor === "green" &&
+      pwcheckColor === "green" &&
+      nameColor === "green" &&
+      emailColor === "green" &&
+      telColor === "green" &&
+      code === codecheck
     ) {
       axios.get(`/user/create`, {
         params: {
@@ -166,6 +176,14 @@ const Join = () => {
       alert("생성실패");
     }
   };
+  const ValidateEmail = async () => {
+    const data = await axios.get(`/mail`, {
+      params: {
+        email,
+      },
+    });
+    setCodecheck(data.data);
+  };
 
   return (
     <div className="main-container">
@@ -173,9 +191,8 @@ const Join = () => {
         <header>
           <div className="logo-wrap">
             <a href="http://localhost:3000">
-              <img src={Logo} />
+              <img src={Logo} alt="logo" />
             </a>
-            <div className="text-primary">회원가입</div>
           </div>
         </header>
         <section className="login-input-section-wrap">
@@ -183,14 +200,14 @@ const Join = () => {
             <span className="fw-bold d-block mb-1">아이디</span>
             <div className="login-input-wrap">
               <input id="id" onChange={onChangeId} type="text" maxlength="20" />
-              {id.length > 0 && idColor == "red" ? (
+              {id.length > 0 && idColor === "red" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "red", fontSize: "12px" }}
                 >
                   {idMessage}
                 </span>
-              ) : id.length > 0 && idColor == "green" ? (
+              ) : id.length > 0 && idColor === "green" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "green", fontSize: "12px" }}
@@ -211,14 +228,14 @@ const Join = () => {
                 type="password"
                 maxlength="20"
               />
-              {password.length > 0 && pwColor == "red" ? (
+              {password.length > 0 && pwColor === "red" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "red", fontSize: "12px" }}
                 >
                   {passwordMessage}
                 </span>
-              ) : pwColor == "green" ? (
+              ) : pwColor === "green" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "green", fontSize: "12px" }}
@@ -239,14 +256,14 @@ const Join = () => {
                 type="password"
                 maxlength="20"
               ></input>
-              {passwordConfirm.length > 0 && pwcheckColor == "red" ? (
+              {passwordConfirm.length > 0 && pwcheckColor === "red" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "red", fontSize: "12px" }}
                 >
                   {passwordConfirmMessage}
                 </span>
-              ) : pwcheckColor == "green" ? (
+              ) : pwcheckColor === "green" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "green", fontSize: "12px" }}
@@ -267,7 +284,7 @@ const Join = () => {
                 type="text"
                 maxlength="20"
               ></input>
-              {name.length > 0 && nameColor == "red" ? (
+              {name.length > 0 && nameColor === "red" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "red", fontSize: "12px" }}
@@ -280,7 +297,24 @@ const Join = () => {
             </div>
           </div>
           <div className="mb-4">
-            <span className="fw-bold d-block mb-1">이메일</span>
+            <div className="d-flex">
+              <span className="fw-bold d-block mb-1">이메일</span>
+              {email.length > 0 && emailColor === "red" ? (
+                <span
+                  className="ml-2 mt-1"
+                  style={{ color: "red", fontSize: "12px" }}
+                >
+                  {emailMessage}
+                </span>
+              ) : (
+                <span
+                  className=" ml-2 mt-1"
+                  style={{ color: "green", fontSize: "12px" }}
+                >
+                  {emailMessage}
+                </span>
+              )}
+            </div>
             <div>
               <div className="login-input-wrap d-flex">
                 <input
@@ -289,25 +323,43 @@ const Join = () => {
                   type="text"
                   maxlength="20"
                 ></input>
-                <button className="btn btn-primary btn-block w-50 px-1 ">
+                <button
+                  className="btn btn-primary btn-block w-50 px-1 "
+                  onClick={() => {
+                    if (emailColor === "green" && email !== "") {
+                      ValidateEmail();
+                      setIsSent(true);
+                    }
+                  }}
+                >
                   인증번호 받기
                 </button>
               </div>
-              {email.length > 0 && emailColor == "red" ? (
-                <span
-                  className="d-block mt-2"
-                  style={{ color: "red", fontSize: "12px" }}
-                >
-                  {emailMessage}
-                </span>
-              ) : (
-                <span
-                  className="d-block mt-2"
-                  style={{ color: "green", fontSize: "12px" }}
-                >
-                  {emailMessage}
-                </span>
-              )}
+            </div>
+
+            <div>
+              <div>
+                <div className="login-input-wrap mt-1">
+                  <input
+                    type="text"
+                    placeholder="인증번호를 입력하세요"
+                    disabled={!isSent}
+                    onChange={(e) => {
+                      setCode(e.target.value);
+                    }}
+                  />
+                </div>
+                {code !== "" ? (
+                  <span
+                    id="codecheck"
+                    className={`${
+                      code === codecheck ? "text-success" : "text-danger"
+                    }`}
+                  >
+                    {`${code === codecheck ? "✔️" : "✖️"} 인증`}
+                  </span>
+                ) : null}
+              </div>
             </div>
           </div>
           <div className="mb-4">
@@ -320,7 +372,7 @@ const Join = () => {
                 type="text"
                 maxlength="20"
               ></input>
-              {tell.length > 0 && telColor == "red" ? (
+              {tell.length > 0 && telColor === "red" ? (
                 <span
                   className="d-block mt-2"
                   style={{ color: "red", fontSize: "12px" }}
@@ -338,7 +390,7 @@ const Join = () => {
             </div>
           </div>
 
-          {suColor == "red" ? (
+          {suColor === "red" ? (
             <div className="login-button-red mb-5">
               <button onClick={CreateUser}>Sign Up</button>
             </div>
