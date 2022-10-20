@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
-
 import axios from "axios";
-
 import { useEffect } from "react";
-import { confirmAlert } from "react-confirm-alert";
 
 const DomNavBar = () => {
   const [select, setSelect] = useState(12);
   const [data, setData] = useState("");
   const [login, setLogin] = useState("");
   const Navigate = useNavigate();
-
+  const location = useLocation();
   const onChangeSelect = (e) => {
     setSelect(e.target.value);
   };
@@ -117,7 +114,7 @@ const DomNavBar = () => {
                   MYPAGE
                 </Link>
                 <Link
-                  to="/"
+                  to={location.pathname}
                   className="btn btn-White py-2 px-4 d-none d-lg-block"
                   onClick={() => {
                     alert("로그아웃 되었습니다");

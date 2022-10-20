@@ -75,6 +75,7 @@ const Single = () => {
           .get(`/api/item`, {
             params: {
               contentid: `${array[0].contentid}`,
+              userId: userid,
             },
           })
           .then((res) => {
@@ -90,6 +91,7 @@ const Single = () => {
       .get(`/api/item`, {
         params: {
           contentid: `${array[0].contentid}`,
+          userId: userid,
         },
       })
       .then((res) => {
@@ -98,7 +100,7 @@ const Single = () => {
   }
 
   const wishCreate = async () => {
-    if (userid !== "") {
+    if (userid !== null) {
       await axios.get("/api/create", {
         params: {
           title: `${array[0].title}`.replace("[", " ").replace("]", " "),
@@ -119,10 +121,11 @@ const Single = () => {
   };
 
   function deleteWish() {
-    if (userid !== "") {
+    if (userid !== null) {
       axios.get(`/api/delete`, {
         params: {
           contentid: `${array[0].contentid}`,
+          userId: userid,
         },
       });
       alert("위시리스트에서 삭제되었습니다.");
