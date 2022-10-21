@@ -37,20 +37,46 @@ const Join = () => {
   //회원가입 버튼 상태
   const [suColor, setSuColor] = useState("red");
 
+  //아이디 중복체크 버튼 활성화
+  const [userCheck, setUserCheck] = useState(false);
+
+  //아이디 체크
   const onChangeId = (e) => {
     const IdRegex = /^[A-Za-z]{3,19}[0-9]{1,}$/;
     const Idcurrent = e.target.value;
     setId(e.target.value);
+
     if (!IdRegex.test(Idcurrent)) {
       setIdColor("red");
       setIdMessage("알파벳과 숫자로 이루어진 4글자 이상으로 입력해주세요. ");
+      setUserCheck(false);
     } else {
-      setIdColor("green");
-      setIdMessage("✔️아이디 확인");
+      setIdMessage("");
+      setUserCheck(true);
       setId(e.target.value);
     }
   };
 
+  //아이디 중복 확인
+  const IdCheck = (e) => {
+    axios
+      .get(`/user/getid`, {
+        params: {
+          userid: id,
+        },
+      })
+      .then((res) => {
+        if (res.data.length === 0) {
+          setIdColor("green");
+          setIdMessage("✔️아이디 확인");
+        } else {
+          setIdColor("red");
+          setIdMessage("아이디가 존재합니다");
+        }
+      });
+  };
+
+  // 비밀번호
   const onChangePassword = (e) => {
     const passwordRegex =
       /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
@@ -69,6 +95,7 @@ const Join = () => {
     }
   };
 
+  //비밀번호 체크
   const onChangePasswordConfirm = (e) => {
     const passwordConfirmCurrent = e.target.value;
     setPasswordConfirm(passwordConfirmCurrent);
@@ -84,6 +111,7 @@ const Join = () => {
     }
   };
 
+  //이름
   const onChangeName = (e) => {
     const NameRex = /^[가-힣]{2,}$/;
     const NameCurrent = e.target.value;
@@ -98,6 +126,7 @@ const Join = () => {
     }
   };
 
+  //이메일
   const onChangeEmailId = (e) => {
     const EmailRegex =
       /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{3,}$/;
@@ -113,6 +142,7 @@ const Join = () => {
     }
   };
 
+  //전화번호
   const onChangePhoneNumber = (e) => {
     const TellRex = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
     const currentTell = e.target.value;
@@ -127,6 +157,7 @@ const Join = () => {
     }
   };
 
+  //유저 생성버튼 체크
   useEffect(() => {
     if (
       idColor === "green" &&
@@ -152,6 +183,7 @@ const Join = () => {
     codecheck,
   ]);
 
+  //유저 생성
   const CreateUser = () => {
     if (
       idColor === "green" &&
@@ -174,9 +206,11 @@ const Join = () => {
       alert("생성완료");
       Navi(`/`);
     } else {
-      alert("생성실패");
+      alert("생성실패 아이디를 다시 확인해주세요");
     }
   };
+
+  //메일 전송
   const ValidateEmail = async () => {
     alert("전송되었습니다");
     const data = await axios.get(`/mail`, {
@@ -195,31 +229,42 @@ const Join = () => {
             <a href="http://localhost:3000">
               <img src={Logo} alt="logo" />
             </a>
+            <div className="text-primary">회원가입</div>
           </div>
         </header>
         <section className="login-input-section-wrap">
-          <div className="mb-4">
+          <div className="mb-4 ">
             <span className="fw-bold d-block mb-1">아이디</span>
-            <div className="login-input-wrap">
+            <div className="login-input-wrap d-flex">
               <input id="id" onChange={onChangeId} type="text" maxlength="20" />
-              {id.length > 0 && idColor === "red" ? (
-                <span
-                  className="d-block mt-2"
-                  style={{ color: "red", fontSize: "12px" }}
-                >
-                  {idMessage}
-                </span>
-              ) : id.length > 0 && idColor === "green" ? (
-                <span
-                  className="d-block mt-2"
-                  style={{ color: "green", fontSize: "12px" }}
-                >
-                  {idMessage}
-                </span>
-              ) : (
-                ""
-              )}
+              <button
+                className="btn btn-primary btn-block w-25 px-1 "
+                onClick={() => {
+                  if (userCheck) {
+                    IdCheck();
+                  }
+                }}
+              >
+                중복체크
+              </button>
             </div>
+            {id.length > 0 && idColor === "red" ? (
+              <span
+                className="d-block mt-2"
+                style={{ color: "red", fontSize: "12px" }}
+              >
+                {idMessage}
+              </span>
+            ) : id.length > 0 && idColor === "green" ? (
+              <span
+                className="d-block mt-2"
+                style={{ color: "green", fontSize: "12px" }}
+              >
+                {idMessage}
+              </span>
+            ) : (
+              ""
+            )}
           </div>
           <div className="mb-4">
             <span className="fw-bold d-block mb-1">비밀번호</span>

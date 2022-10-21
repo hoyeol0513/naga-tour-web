@@ -114,7 +114,7 @@ const DomNavBar = () => {
                   MYPAGE
                 </Link>
                 <Link
-                  to={location.pathname}
+                  to="/"
                   className="btn btn-White py-2 px-4 d-none d-lg-block"
                   onClick={() => {
                     alert("로그아웃 되었습니다");
