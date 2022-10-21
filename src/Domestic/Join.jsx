@@ -38,11 +38,12 @@ const Join = () => {
   const [suColor, setSuColor] = useState("red");
 
   const onChangeId = (e) => {
-    const IdRegex = /^[A-Za-z]{1}[[A-Za-z0-9_-]{3,19}$/;
+    const IdRegex = /^[A-Za-z]{3,19}[0-9]{1,}$/;
     const Idcurrent = e.target.value;
+    setId(e.target.value);
     if (!IdRegex.test(Idcurrent)) {
       setIdColor("red");
-      setIdMessage("4글자 이상 12글자 미만으로 입력해주세요.");
+      setIdMessage("알파벳과 숫자로 이루어진 4글자 이상으로 입력해주세요. ");
     } else {
       setIdColor("green");
       setIdMessage("✔️아이디 확인");
@@ -177,6 +178,7 @@ const Join = () => {
     }
   };
   const ValidateEmail = async () => {
+    alert("전송되었습니다");
     const data = await axios.get(`/mail`, {
       params: {
         email,
