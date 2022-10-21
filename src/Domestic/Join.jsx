@@ -40,6 +40,9 @@ const Join = () => {
   //아이디 중복체크 버튼 활성화
   const [userCheck, setUserCheck] = useState(false);
 
+  // 유저 이름 중복값 상태
+  const [nameCheck, setNameCheck] = useState(false);
+
   //아이디 체크
   const onChangeId = (e) => {
     const IdRegex = /^[A-Za-z]{3,19}[0-9]{1,}$/;
@@ -68,10 +71,10 @@ const Join = () => {
       .then((res) => {
         if (res.data.length === 0) {
           setIdColor("green");
-          setIdMessage("✔️아이디 확인");
+          setIdMessage("✔️사용가능한 아이디입니다.");
         } else {
           setIdColor("red");
-          setIdMessage("아이디가 존재합니다");
+          setIdMessage("❌아이디가 존재합니다");
         }
       });
   };
@@ -183,8 +186,26 @@ const Join = () => {
     codecheck,
   ]);
 
+  //유저 생성 전 유저이름 체크
+  const checkName = () => {
+    axios
+      .get(`/user/getName`, {
+        params: {
+          username: name,
+        },
+      })
+      .then((res) => {
+        if (res.data.length != 0) {
+          setUserCheck(true);
+        } else {
+          setUserCheck(false);
+        }
+      });
+  };
+
   //유저 생성
   const CreateUser = () => {
+    checkName();
     if (
       idColor === "green" &&
       pwColor === "green" &&
@@ -192,7 +213,8 @@ const Join = () => {
       nameColor === "green" &&
       emailColor === "green" &&
       telColor === "green" &&
-      code === codecheck
+      code === codecheck &&
+      userCheck === false
     ) {
       axios.get(`/user/create`, {
         params: {
@@ -206,7 +228,12 @@ const Join = () => {
       alert("생성완료");
       Navi(`/`);
     } else {
-      alert("생성실패 아이디를 다시 확인해주세요");
+      if (userCheck === true && suColor == "blue") {
+        alert("생성실패 \n해당 이름의 아이디가 존재합니다");
+        document.getElementById("userName").focus();
+      } else if (userCheck === false && suColor == "red") {
+        alert("생성실패 \n항목을 다시 확인해주세요");
+      }
     }
   };
 
@@ -403,7 +430,11 @@ const Join = () => {
                       code === codecheck ? "text-success" : "text-danger"
                     }`}
                   >
-                    {`${code === codecheck ? "✔️" : "✖️"} 인증`}
+                    {`${
+                      code === codecheck
+                        ? "✔️인증 되었습니다."
+                        : "✖️인증번호가 일치하지 않습니다."
+                    } `}
                   </span>
                 ) : null}
               </div>

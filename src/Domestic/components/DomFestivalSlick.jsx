@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
 import Styles from "../css/style.css";
+import { today } from "@internationalized/date";
 
 const DomFestivalSlick = ({ CityCode }) => {
   const settings = {
@@ -97,12 +98,15 @@ const DomFestivalSlick = ({ CityCode }) => {
         <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
           Event information
         </h6>
-        <h1
-          className="text-dark font-weight-bold text-center pb-3"
-          id="KOTRALEAP"
-        >
+        <h1 className="text-dark font-weight-bold text-center" id="KOTRALEAP">
           행사 정보
         </h1>
+        <h4
+          className="text-secondary font-weight-bold text-center pb-3"
+          id="KOTRALEAP"
+        >
+          기준 날짜: {new Date().toISOString().slice(0, 10)}
+        </h4>
         {loading ? (
           <div className="text-center">loading...</div>
         ) : (
