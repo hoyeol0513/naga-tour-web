@@ -183,7 +183,7 @@ const Single = () => {
               >
                 <div
                   style={{
-                    height: "250px",
+                    height: "320px",
                     overflow: "auto",
                   }}
                 >
@@ -200,28 +200,30 @@ const Single = () => {
                 <div className="text-secondary d-flex justify-content-end">
                   주소 : {v.addr1}
                 </div>
-                <div className="text-secondary d-flex justify-content-end">
+                <div className="text-secondary d-flex justify-content-end pb-2">
                   tel : {v.tel}
                 </div>
-                {wishLen > 0 ? (
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    method="post"
-                    onClick={deleteWish}
-                  >
-                    위시리스트 삭제
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={wishCreate}
-                    method="post"
-                  >
-                    위시리스트 저장
-                  </button>
-                )}
+                <div className="d-flex justify-content-center">
+                  {wishLen > 0 ? (
+                    <button
+                      type="button"
+                      className="btn btn-block btn-danger"
+                      method="post"
+                      onClick={deleteWish}
+                    >
+                      위시리스트 삭제
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn btn-block btn-primary "
+                      onClick={wishCreate}
+                      method="post"
+                    >
+                      위시리스트 저장
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
