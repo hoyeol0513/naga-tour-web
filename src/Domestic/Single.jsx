@@ -185,6 +185,8 @@ const Single = () => {
                   style={{
                     height: "250px",
                     overflow: "auto",
+                    border: "1px solid rgba(0,0,0,0.2)",
+                    borderRadius: "5px",
                   }}
                 >
                   {v.overview}

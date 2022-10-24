@@ -5,7 +5,7 @@ module.exports = function (app) {
     "/api",
     "/user",
     createProxyMiddleware({
-      target: "http://localhost:8081",
+      target: "http://nagatourweb.shop:8081",
       changeOrigin: true,
     })
   );
