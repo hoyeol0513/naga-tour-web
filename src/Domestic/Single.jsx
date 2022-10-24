@@ -37,7 +37,7 @@ const Single = () => {
         mapDivId={"react-naver-map"}
         style={{
           width: "100%",
-          height: "35vh",
+          height: "335px",
           marginBottom: "10px",
           marginTop: "10px",
           border: "solid rgba(0,0,0,0.1) 2px",
@@ -183,7 +183,7 @@ const Single = () => {
               >
                 <div
                   style={{
-                    height: "320px",
+                    height: "250px",
                     overflow: "auto",
                     border: "1px solid rgba(0,0,0,0.2)",
                     borderRadius: "5px",
