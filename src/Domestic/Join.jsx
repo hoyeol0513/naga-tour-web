@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/Loginpage.css";
 import Logo from "./img/logo.png";
 
@@ -253,9 +253,9 @@ const Join = () => {
       <div className="main-wrap">
         <header>
           <div className="logo-wrap">
-            <a href="http://localhost:3000">
+            <Link to="/">
               <img src={Logo} alt="logo" />
-            </a>
+            </Link>
             <div className="text-primary">회원가입</div>
           </div>
         </header>
