@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/Loginpage.css";
 import Logo from "./img/logo.png";
 
@@ -84,31 +84,16 @@ const Login = () => {
           </div>
         </section>
 
-        <section className="Easy-sgin-in-wrap">
-          <h2>Easier sign in</h2>
-          <ul className="sign-button-list">
-            <li>
-              <button>
-                <i className="fas fa-qrcode"></i>
-                <span>Sign in with QR code</span>
-              </button>
-            </li>
-            <li>
-              <button>
-                <i className="fab fa-facebook-square"></i>
-                <span>Facebook</span>
-              </button>
-            </li>
-            <li>
-              <button>
-                <i className="fab fa-line"></i>
-                <span>line</span>
-              </button>
-            </li>
-          </ul>
-          <p className="forget-msg">
-            Forgot your Username or Password? | Sign up
-          </p>
+        <section className="d-flex justify-content-center">
+          <a className="pr-2" style={{ color: "rgba(0,0,0,0.2)" }}>
+            Forgot your Username or Password? |
+          </a>
+          <Link
+            to="/signup"
+            style={{ color: "rgba(0,0,0,0.2)", textDecoration: "underline" }}
+          >
+            Sign up
+          </Link>
         </section>
         <footer>
           <div className="copyright-wrap">
