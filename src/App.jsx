@@ -7,6 +7,7 @@ import List from "./Domestic/List";
 import Login from "./Domestic/Login";
 import MyPages from "./Domestic/components/MyPages";
 import Join from "./Domestic/Join";
+import ForgetPw from "./Domestic/ForgetPw";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/mypage" element={<MyPages />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/price" element={<Price />}></Route>
+          <Route path="/forget" element={<ForgetPw />}></Route>
         </Routes>
       </Router>
     </>
