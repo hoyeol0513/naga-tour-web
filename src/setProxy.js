@@ -9,13 +9,3 @@ module.exports = function (app) {
     })
   );
 };
-
-module.exports = function (app) {
-  app.use(
-    "/user",
-    createProxyMiddleware({
-      target: "http://nagatourweb.shop:8081",
-      changeOrigin: true,
-    })
-  );
-};

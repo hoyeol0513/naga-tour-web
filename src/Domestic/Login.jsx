@@ -12,7 +12,7 @@ const Login = () => {
   const Navi = useNavigate();
   const userLogin = () => {
     axios
-      .get(`/user/login`, {
+      .get(`/api/user/login`, {
         params: {
           userid: userid,
           password: password,
