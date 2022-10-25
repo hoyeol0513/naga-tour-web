@@ -63,7 +63,7 @@ const Join = () => {
   //아이디 중복 확인
   const IdCheck = (e) => {
     axios
-      .get(`/user/getid`, {
+      .get(`/api/user/getid`, {
         params: {
           userid: id,
         },
