@@ -12,7 +12,7 @@ const Login = () => {
   const Navi = useNavigate();
   const userLogin = () => {
     axios
-      .get(`/user/login`, {
+      .get(`/api/user/login`, {
         params: {
           userid: userid,
           password: password,
@@ -84,15 +84,6 @@ const Login = () => {
           </div>
         </section>
 
-<<<<<<< HEAD
-        <section className="d-flex justify-content-center">
-          <a className="pr-2" style={{ color: "rgba(0,0,0,0.2)" }}>
-            Forgot your Username or Password? |
-          </a>
-          <Link
-            to="/signup"
-            style={{ color: "rgba(0,0,0,0.2)", textDecoration: "underline" }}
-=======
         <section className="justify-content-center text-center d-flex">
           <Link
             to="/forget"
@@ -105,7 +96,6 @@ const Login = () => {
             to="/signup"
             className="text-secondary"
             style={{ textDecoration: "none" }}
->>>>>>> aec45095e60d9b7d85d1bdd3de27b14c50b399a1
           >
             Sign up
           </Link>

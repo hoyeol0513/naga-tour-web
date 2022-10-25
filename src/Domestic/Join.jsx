@@ -189,7 +189,7 @@ const Join = () => {
   //유저 생성 전 유저이름 체크
   const checkName = () => {
     axios
-      .get(`/user/getName`, {
+      .get(`/api/user/getName`, {
         params: {
           username: name,
         },
@@ -216,7 +216,7 @@ const Join = () => {
       code === codecheck &&
       userCheck === false
     ) {
-      axios.get(`/user/create`, {
+      axios.get(`/api/user/create`, {
         params: {
           userid: id,
           password: password,
