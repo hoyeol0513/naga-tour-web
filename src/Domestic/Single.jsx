@@ -80,6 +80,7 @@ const Single = () => {
           })
           .then((res) => {
             setWishLen(res.data.length);
+            console.log(res);
           });
       }
       getItem();
@@ -96,6 +97,7 @@ const Single = () => {
       })
       .then((res) => {
         setWishLen(res.data.length);
+        console.log(res);
       });
   }
 
