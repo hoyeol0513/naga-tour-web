@@ -7,7 +7,7 @@ const ForgetPw = () => {
         <div className="main-wrap">
           <header>
             <div className="logo-wrap">
-              <a href="http://localhost:3000">
+              <a href="http://nagatourweb.shop">
                 <img src={Logo} alt="logo" />
               </a>
               <div className="text-primary">비밀번호 찾기</div>
