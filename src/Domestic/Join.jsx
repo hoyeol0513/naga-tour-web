@@ -40,9 +40,6 @@ const Join = () => {
   //아이디 중복체크 버튼 활성화
   const [userCheck, setUserCheck] = useState(false);
 
-  // 유저 이름 중복값 상태
-  const [nameCheck, setNameCheck] = useState(false);
-
   //아이디 체크
   const onChangeId = (e) => {
     const IdRegex = /^[A-Za-z]{3,19}[0-9]{1,}$/;
@@ -186,23 +183,6 @@ const Join = () => {
     codecheck,
   ]);
 
-  //유저 생성 전 유저이름 체크
-  const checkName = () => {
-    axios
-      .get(`http://nagatourweb.shop:8081/api/user/getName`, {
-        params: {
-          username: name,
-        },
-      })
-      .then((res) => {
-        if (res.data.length != 0) {
-          setUserCheck(true);
-        } else {
-          setUserCheck(false);
-        }
-      });
-  };
-
   const userCheckOn = () => {
     console.log("idColor:" + idColor);
     console.log("pwColor:" + pwColor);
@@ -215,7 +195,6 @@ const Join = () => {
   };
   //유저 생성
   const CreateUser = () => {
-    checkName();
     userCheckOn();
     if (
       idColor === "green" &&
@@ -224,8 +203,7 @@ const Join = () => {
       nameColor === "green" &&
       emailColor === "green" &&
       telColor === "green" &&
-      code === codecheck &&
-      userCheck === false
+      code === codecheck
     ) {
       axios.get(`http://nagatourweb.shop:8081/api/user/create`, {
         params: {
@@ -239,10 +217,10 @@ const Join = () => {
       alert("생성완료");
       Navi(`/`);
     } else {
-      if (userCheck === true && suColor == "blue") {
+      if (suColor == "blue") {
         alert("생성실패 \n해당 이름의 아이디가 존재합니다");
         document.getElementById("userName").focus();
-      } else if (userCheck === false && suColor == "red") {
+      } else if (suColor == "red") {
         alert("생성실패 \n항목을 다시 확인해주세요");
       }
     }
