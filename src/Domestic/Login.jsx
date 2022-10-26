@@ -19,7 +19,7 @@ const Login = () => {
         },
       })
       .then((res) => {
-        if (res.data !== undefined) {
+        if (res.data === undefined) {
           console.log("로그인정보", res);
           localStorage.setItem("user_id", userid);
           alert("로그인성공");
