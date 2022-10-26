@@ -33,6 +33,9 @@ const DomNavBar = () => {
         sessionStorage.getItem("navSelect");
       document.getElementById("navValue").value =
         sessionStorage.getItem("navValue");
+
+      setSelect(sessionStorage.getItem("navSelect"));
+      setData(sessionStorage.getItem("navValue"));
     }
   }, []);
 
