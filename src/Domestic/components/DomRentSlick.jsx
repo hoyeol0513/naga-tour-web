@@ -73,7 +73,7 @@ const DomRentSlick = ({ CityName }) => {
                   >
                     <div
                       style={{
-                        width: "1024px",
+                        width: "100vh",
                         marginLeft: "auto",
                         marginRight: "auto",
                       }}

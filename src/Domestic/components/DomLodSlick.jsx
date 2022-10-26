@@ -14,7 +14,6 @@ const DomLodSlick = ({ CityCode }) => {
     autoplaySpeed: 9000,
     fade: true,
     cssEase: "linear",
-    centerMode: true,
   };
 
   const [imageno, setImageNo] = useState(0);
@@ -77,82 +76,79 @@ const DomLodSlick = ({ CityCode }) => {
   // }, [CityCode, imageno]);
 
   return (
-    <div className="border border-top-0">
+    <div>
       <DomMetaTag />
+      <div className="border border-top-0">
+        <div>
+          <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
+            Accommodation information
+          </h6>
+          <h1
+            className="text-dark font-weight-bold text-center pb-3"
+            id="KOTRALEAP"
+          >
+            숙소 정보
+          </h1>
+          {loading ? (
+            <div className="text-center">loading...</div>
+          ) : (
+            <Slider {...settings}>
+              {lod &&
+                lod.map((v, index) => {
+                  //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
+                  return (
+                    v.firstimage && (
+                      <div
+                        key={index}
+                        className="d-flex flex flex-row text-center justify-content-center"
+                        id="KOTRALEAP"
+                      >
+                        <img
+                          object-fit="fill"
+                          src={v.firstimage}
+                          width="480px"
+                          height="480px"
+                          alt="이미지"
+                          background-size="cover"
+                          className="lod shadow-lg bg-body rounded"
+                        />
 
-      <div
-        className=""
-        style={{ width: "1280px", marginLeft: "auto", marginRight: "auto" }}
-      >
-        <h6 className="text-center text-primary mb-0 pt-5" id="KOTRALEAP">
-          Accommodation information
-        </h6>
-        <h1
-          className="text-dark font-weight-bold text-center pb-3"
-          id="KOTRALEAP"
-        >
-          숙소 정보
-        </h1>
-        {loading ? (
-          <div className="text-center">loading...</div>
-        ) : (
-          <Slider {...settings}>
-            {lod &&
-              lod.map((v, index) => {
-                //조건부 랜더링 (return이 false면 랜더링이 안되는 개념)
-                return (
-                  v.firstimage && (
-                    <div
-                      key={index}
-                      className="d-flex flex flex-row text-center"
-                      id="KOTRALEAP"
-                    >
-                      <img
-                        object-fit="fill"
-                        src={v.firstimage}
-                        width="480px"
-                        height="480px"
-                        alt="이미지"
-                        background-size="cover"
-                        className="shadow-lg bg-body rounded"
-                      />
-
-                      <div>
-                        <div className="team card position-relative border-start mb-5 ">
-                          <div className="card-body text-center p-0 ">
-                            <div
-                              className=" bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
-                              style={{
-                                width: "720px",
-                                height: "480px",
-                              }}
-                            >
-                              <h1 className="font-weight-bold mb-4">
-                                {v.title}
-                              </h1>
-                              <span className="text-secondary">
-                                <i className="fi fi-sr-marker mx-1 "></i>
-                                {v.addr1} {v.addr2}
-                              </span>
-
-                              <a
-                                href={`/single/${v.contentid}/${v.contenttypeid}`}
-                                alt="이동하기"
-                                className="text-primary"
-                                target="_blank"
+                        <div>
+                          <div className="team card position-relative">
+                            <div className="card-body text-center p-0">
+                              <div
+                                className=" lodText bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
+                                style={{
+                                  height: "480px",
+                                }}
                               >
-                                바로가기
-                              </a>
+                                <h1 className="font-weight-bold mb-4">
+                                  {v.title}
+                                </h1>
+                                <span className="text-secondary">
+                                  <i className="fi fi-sr-marker mx-1 "></i>
+                                  {v.addr1} {v.addr2}
+                                </span>
+
+                                <a
+                                  href={`/single/${v.contentid}/${v.contenttypeid}`}
+                                  alt="이동하기"
+                                  className="text-primary"
+                                  target="_blank"
+                                >
+                                  바로가기
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  )
-                );
-              })}
-          </Slider>
-        )}
+                    )
+                  );
+                })}
+            </Slider>
+          )}
+        </div>
       </div>
     </div>
   );
