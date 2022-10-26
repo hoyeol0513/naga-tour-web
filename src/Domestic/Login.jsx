@@ -26,7 +26,7 @@ const Login = () => {
           Navi(-1);
         } else {
           localStorage.clear();
-          console.log("로그인실패");
+          console.log("로그인실패", res);
           alert(
             "로그인에 실패하였습니다. \n아이디 또는 패스워드를 확인해주세요"
           );
