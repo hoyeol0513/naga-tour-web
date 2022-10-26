@@ -27,7 +27,7 @@ const MyPages = () => {
 
   useEffect(() => {
     axios
-      .get("/api/user/item", {
+      .get("http://nagatourweb.shop:8081/api/user/item", {
         params: {
           userId: userid,
         },
