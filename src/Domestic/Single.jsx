@@ -81,6 +81,7 @@ const Single = () => {
           .then((res) => {
             setWishLen(res.data.length);
             console.log(res);
+            console.log(wishLen);
           });
       }
       getItem();
@@ -98,6 +99,7 @@ const Single = () => {
       .then((res) => {
         setWishLen(res.data.length);
         console.log(res);
+        console.log(wishLen);
       });
   }
 
