@@ -203,9 +203,20 @@ const Join = () => {
       });
   };
 
+  const userCheckOn = () => {
+    console.log("idColor:" + idColor);
+    console.log("pwColor:" + pwColor);
+    console.log("pwCheckColor:" + pwcheckColor);
+    console.log("nameColor:" + nameColor);
+    console.log("emailColor:" + emailColor);
+    console.log("telColor:" + telColor);
+    console.log("code" + code + "codecheck" + codecheck);
+    console.log("userCheck" + userCheck);
+  };
   //유저 생성
   const CreateUser = () => {
     checkName();
+    userCheckOn();
     if (
       idColor === "green" &&
       pwColor === "green" &&
