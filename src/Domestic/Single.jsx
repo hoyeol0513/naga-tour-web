@@ -72,7 +72,7 @@ const Single = () => {
     if (array.length !== 0) {
       async function getItem() {
         await axios
-          .get(`/api/item`, {
+          .get(`http://nagatourweb.shop:8081/api/item`, {
             params: {
               contentid: `${array[0].contentid}`,
               userId: userid,
@@ -90,7 +90,7 @@ const Single = () => {
 
   async function getItem() {
     await axios
-      .get(`/api/item`, {
+      .get(`http://nagatourweb.shop:8081/api/item`, {
         params: {
           contentid: `${array[0].contentid}`,
           userId: userid,
@@ -105,7 +105,7 @@ const Single = () => {
 
   const wishCreate = async () => {
     if (userid !== null) {
-      await axios.get("/api/create", {
+      await axios.get("http://nagatourweb.shop:8081/api/create", {
         params: {
           title: `${array[0].title}`.replace("[", " ").replace("]", " "),
           addr1: `${array[0].addr1}`,
@@ -126,7 +126,7 @@ const Single = () => {
 
   function deleteWish() {
     if (userid !== null) {
-      axios.get(`/api/delete`, {
+      axios.get(`http://nagatourweb.shop:8081/api/delete`, {
         params: {
           contentid: `${array[0].contentid}`,
           userId: userid,
