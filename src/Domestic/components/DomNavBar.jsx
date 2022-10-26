@@ -25,6 +25,15 @@ const DomNavBar = () => {
 
   useEffect(() => {
     userLogin();
+    if (
+      sessionStorage.getItem("navValue") !== null &&
+      sessionStorage.getItem("navSelect") !== null
+    ) {
+      document.getElementById("navSelect").value =
+        sessionStorage.getItem("navSelect");
+      document.getElementById("navValue").value =
+        sessionStorage.getItem("navValue");
+    }
   }, []);
 
   useEffect(() => {
@@ -59,6 +68,14 @@ const DomNavBar = () => {
                 className="w-100"
                 onSubmit={() => {
                   if (data.trim() !== "") {
+                    sessionStorage.setItem(
+                      "navValue",
+                      document.getElementById("navValue").value
+                    );
+                    sessionStorage.setItem(
+                      "navSelect",
+                      document.getElementById("navSelect").value
+                    );
                     Navigate(`/list/${select}/${data}`);
                   }
                 }}
@@ -67,6 +84,7 @@ const DomNavBar = () => {
                 <div className="input-group w-75">
                   <div className="d-inline-flex">
                     <select
+                      id="navSelect"
                       className="d-inline-flex form-select"
                       aria-label="Default select example"
                       value={data.select}
@@ -81,6 +99,7 @@ const DomNavBar = () => {
                   </div>
                   <input
                     type="text"
+                    id="navValue"
                     className="form-control"
                     aria-label="Text input with dropdown button"
                     value={data.text}
