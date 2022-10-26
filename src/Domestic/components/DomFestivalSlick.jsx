@@ -14,6 +14,7 @@ const DomFestivalSlick = ({ CityCode }) => {
     autoplay: true,
     autoplaySpeed: 3000,
     centerMode: true,
+    dots: true,
   };
 
   const [imageno, setImageNo] = useState(0);
@@ -118,23 +119,18 @@ const DomFestivalSlick = ({ CityCode }) => {
                   v.firstimage && (
                     <div
                       key={index}
-                      className="d-flex justify-content-around flex-column ml-5 pl-5"
+                      className="d-flex flex-column "
                       id="KOTRALEAP"
-                      style={{
-                        padding: "500px",
-                      }}
                     >
                       <img
                         object-fit="fill"
                         src={v.firstimage}
-                        width="380px"
-                        height="500px"
                         alt="이미지"
-                        className="shadow-lg bg-body "
+                        className="shadow-lg bg-body festival"
                       />
 
-                      <div style={{ width: "380px" }}>
-                        <div className="team card position-relative border-start mb-5">
+                      <div>
+                        <div className="festival team card position-relative border-start mb-5">
                           <div className="card-body text-center p-0">
                             <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body  ">
                               <h5 className="font-weight-bold fs-2 mb-0">

@@ -67,10 +67,6 @@ const ForgetPw = () => {
 
               <div>
                 <div>
-                  <div className="login-input-wrap mt-1">
-                    <input type="text" placeholder="인증번호를 입력하세요" />
-                  </div>
-
                   <span id="codecheck"></span>
                 </div>
               </div>

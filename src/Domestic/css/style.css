@@ -12,13 +12,43 @@
   font-style: normal;
 }
 
+@media(min-width:768px){
+  .festival{
+    width:35vh;
+    height:50vh;
+    
+  }
+}
+
+@media(min-width:1024px){
+  .festival{
+    width: 380px;
+    height: 500px;
+    
+  }
+}
+
+@media(min-width: 768px){
+.lod{
+  width:50vh
+}
+}
+
+@media(min-width: 1024px){
+  .lod{
+    width:480px
+  }
+  .lodText{
+    width:720px;
+    
+  }
+  }
+
 .click:hover{
   z-index: 2;
   background-color: rgba(0,0,0,0.2);
   
 }
-
-
 
 .jumbotron {
   background: url("https://thumb.photo-ac.com/90/9034e044cc36a4e0b428931defd6f8f1_t.jpeg");
@@ -680,6 +710,8 @@ pre code {
     max-width: 720px;
   }
 }
+
+
 
 @media (min-width: 992px) {
   .container, .container-sm, .container-md, .container-lg {
