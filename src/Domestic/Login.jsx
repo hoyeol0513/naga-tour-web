@@ -12,7 +12,7 @@ const Login = () => {
   const Navi = useNavigate();
   const userLogin = () => {
     axios
-      .get(`/api/user/login`, {
+      .get(`http://nagatourweb.shop/api/user/login`, {
         params: {
           userid: userid,
           password: password,
