@@ -216,7 +216,7 @@ const Join = () => {
       code === codecheck &&
       userCheck === false
     ) {
-      axios.get(`/api/user/create`, {
+      axios.get(`http://nagatourweb.shop:8081/api/user/create`, {
         params: {
           userid: id,
           password: password,
