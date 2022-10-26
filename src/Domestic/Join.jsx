@@ -63,7 +63,7 @@ const Join = () => {
   //아이디 중복 확인
   const IdCheck = (e) => {
     axios
-      .get(`/api/user/getid`, {
+      .get(`http://nagatourweb.shop:8081/api/user/getid`, {
         params: {
           userid: id,
         },
@@ -189,7 +189,7 @@ const Join = () => {
   //유저 생성 전 유저이름 체크
   const checkName = () => {
     axios
-      .get(`/api/user/getName`, {
+      .get(`http://nagatourweb.shop:8081/api/user/getName`, {
         params: {
           username: name,
         },
@@ -240,7 +240,7 @@ const Join = () => {
   //메일 전송
   const ValidateEmail = async () => {
     alert("전송되었습니다");
-    const data = await axios.get(`/mail`, {
+    const data = await axios.get(`http://nagatourweb.shop:8081/mail`, {
       params: {
         email,
       },
