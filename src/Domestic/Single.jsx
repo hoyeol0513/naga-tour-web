@@ -164,14 +164,14 @@ const Single = () => {
               </h1>
             </div>
             <div
-              className="d-flex justify-content-center mx-auto"
+              className="singlePage justify-content-center mx-auto"
               style={{
                 width: "1200px",
                 borderRadius: "30px",
               }}
             >
               <img
-                className="shadow-lg bg-body rounded"
+                className="singleImg shadow-lg bg-body rounded"
                 src={v.firstimage}
                 style={{
                   marginRight: "10px",
