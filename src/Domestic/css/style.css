@@ -13,6 +13,25 @@
 }
 
 @media(min-width:768px){
+  .singlePage{
+    display: block;
+  }
+}
+
+@media(min-width:1024px){
+  .singlePage{
+    display: flex;
+  }
+}
+
+@media(max-width:768px){
+  .singleImg{
+    width:100px;
+  }
+}
+
+
+@media(min-width:768px){
   .festival{
     width:35vh;
     height:50vh;
@@ -28,21 +47,18 @@
   }
 }
 
-@media(min-width: 768px){
-.lod{
-  width:50vh
-}
+@media(min-width:768px){
+  .lodObject{
+    display: block;
+  }
 }
 
-@media(min-width: 1024px){
-  .lod{
-    width:480px
+@media(min-width:1024px){
+  .lodObject{
+    display: flex;
+    flex-direction:row;
   }
-  .lodText{
-    width:720px;
-    
-  }
-  }
+}
 
 .click:hover{
   z-index: 2;
