@@ -12,6 +12,9 @@
   font-style: normal;
 }
 
+
+
+
 @media(min-width:768px){
   .singlePage{
     display: block;
@@ -64,6 +67,26 @@
   z-index: 2;
   background-color: rgba(0,0,0,0.2);
   
+}
+
+
+.subMenu2{
+  box-sizing: inherit;
+  position:absolute;
+  top: 8vh;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  display: none;
+}
+
+.subMenu>li:hover>.subMenu2{
+  display: block;
+}
+
+.subMenu>li{
+  padding: 10px 2px;
 }
 
 .jumbotron {
