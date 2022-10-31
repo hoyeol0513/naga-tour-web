@@ -114,18 +114,31 @@ const DomNavBar = () => {
             </div>
             {login === null ? (
               <div className="d-flex gap-2">
-                <Link
-                  to="/Login"
-                  className="btn btn-white py-2 px-4 d-none d-lg-block"
+                <ul
+                  classMenu="subMenu"
+                  style={{ listStyle: "none", margin: "0", padding: "0" }}
                 >
-                  LOGIN
-                </Link>
-                <Link
-                  to="/signup"
-                  className="btn btn-White py-2 px-4 d-none d-lg-block"
-                >
-                  SIGNUP
-                </Link>
+                  <li>
+                    <Link
+                      to="/Login"
+                      className="btn btn-white mt-2 py-3 px-4 d-none d-lg-block"
+                    >
+                      LOGIN
+                    </Link>
+                  </li>
+                  <ul className="subMenu2">
+                    <li>테스트아이템1</li>
+                    <li>테스트아이템2</li>
+                  </ul>
+                </ul>
+                <ul style={{ listStyle: "none", margin: "0", padding: "0" }}>
+                  <Link
+                    to="/signup"
+                    className="btn btn-White mt-2 py-3 px-4 d-none d-lg-block"
+                  >
+                    SIGNUP
+                  </Link>
+                </ul>
               </div>
             ) : (
               <div className="d-flex gap-2">
