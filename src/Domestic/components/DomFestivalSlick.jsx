@@ -43,7 +43,7 @@ const DomFestivalSlick = ({ CityCode }) => {
     async function getImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}"`
+          `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${servicekey}&numOfRows=10&pageNo=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}"`
         );
         console.log(response);
         setImageNo(randomNumberInRange(response.data.response.body.totalCount));
@@ -59,7 +59,7 @@ const DomFestivalSlick = ({ CityCode }) => {
     async function changeImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}`
+          `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}`
         );
 
         setFestival(response.data.response.body.items.item);
@@ -76,7 +76,7 @@ const DomFestivalSlick = ({ CityCode }) => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchFestival?serviceKey=${servicekey}&numOfRows=10&pageNo=$0&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&eventStartDate=${startday}`
+          `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${servicekey}&numOfRows=10&pageNo=$0&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}&eventStartDate=${startday}`
         );
         setFestival(response.data.response.body.items.item);
         setLoading(false);
