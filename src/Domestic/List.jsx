@@ -22,7 +22,7 @@ const List = () => {
     async function getImage() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/searchKeyword?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}`
+          `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}`
         );
         setArray(response.data.response.body.items.item);
       } catch (error) {
@@ -37,13 +37,13 @@ const List = () => {
       try {
         if (cityCode !== 0) {
           const response = await axios.get(
-            `https://apis.data.go.kr/B551011/KorService/searchKeyword?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}&areaCode=${cityCode}`
+            `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}&areaCode=${cityCode}`
           );
           setArray(response.data.response.body.items.item);
         }
         if (cityCode === 0) {
           const response = await axios.get(
-            `https://apis.data.go.kr/B551011/KorService/searchKeyword?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}`
+            `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&contentTypeId=${contenttypeid}&keyword=${keyword}`
           );
           setArray(response.data.response.body.items.item);
         }
@@ -58,7 +58,7 @@ const List = () => {
     async function getSi() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/areaCode?serviceKey=${serviceKey}&numOfRows=17&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`
+          `https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=${serviceKey}&numOfRows=17&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`
         );
 
         setSi(response.data.response.body.items.item);
