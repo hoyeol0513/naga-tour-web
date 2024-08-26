@@ -58,7 +58,7 @@ const Single = () => {
     async function getImage() {
       try {
         const response = await axios.get(`
-    https://apis.data.go.kr/B551011/KorService/detailCommon?serviceKey=${servicekey}&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${contentid}&contentTypeId=${contenttypeid}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y`);
+    https://apis.data.go.kr/B551011/KorService1/detailCommon1?serviceKey=${servicekey}&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${contentid}&contentTypeId=${contenttypeid}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y`);
         setArray(response.data.response.body.items.item);
         setTitle(response.data.response.body.items.item[0].title);
       } catch (error) {
