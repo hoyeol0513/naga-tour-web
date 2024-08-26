@@ -21,7 +21,7 @@ const DomMain = () => {
     async function getSi() {
       try {
         const response = await axios.get(
-          `https://apis.data.go.kr/B551011/KorService/areaCode?serviceKey=${servicekey}&numOfRows=17&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`
+          `https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=${servicekey}&numOfRows=17&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`
         );
 
         setSi(response.data.response.body.items.item);
