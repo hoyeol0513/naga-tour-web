@@ -2,8 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import DomMetaTag from "./DomMetaTag";
-import Styles from "../css/style.css";
-import { today } from "@internationalized/date";
 
 const DomFestivalSlick = ({ CityCode }) => {
   const settings = {
@@ -14,7 +12,6 @@ const DomFestivalSlick = ({ CityCode }) => {
     autoplay: true,
     autoplaySpeed: 3000,
     centerMode: true,
-    dots: true,
   };
 
   const [imageno, setImageNo] = useState(0);
@@ -22,14 +19,11 @@ const DomFestivalSlick = ({ CityCode }) => {
   const [loading, setLoading] = useState(true);
   const servicekey =
     "%2B5juZ2oo8p9fd9pgmKEEYLuIs4KE2JabN2JIjinKYJtXaVInvxjvQlFCIR9y8HHtHEpmLhqRtM7BDNb2XsBMcw%3D%3D";
-
   const current = new Date();
-
   const month =
     `${current.getMonth() + 1}` <= 9
       ? "0" + `${current.getMonth() + 1}`
       : `${current.getMonth() + 1}`;
-
   const day =
     `${current.getDate()}` <= 9
       ? "0" + `${current.getDate() + 1}`
@@ -40,7 +34,7 @@ const DomFestivalSlick = ({ CityCode }) => {
   const startday = date;
 
   useEffect(() => {
-    async function getImage() {
+    async function getImgNo() {
       try {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${servicekey}&numOfRows=10&pageNo=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}"`
@@ -51,17 +45,16 @@ const DomFestivalSlick = ({ CityCode }) => {
         console.log(error);
       }
     }
-    getImage();
+    getImgNo();
   }, []);
 
-  //axios
+  //imgNo 들어간 요청
   useEffect(() => {
     async function changeImage() {
       try {
         const response = await axios.get(
           `https://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${servicekey}&numOfRows=10&pageNo=${imageno}&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&eventStartDate=${startday}`
         );
-
         setFestival(response.data.response.body.items.item);
         setLoading(false);
       } catch (error) {
@@ -70,7 +63,7 @@ const DomFestivalSlick = ({ CityCode }) => {
     }
     changeImage();
   }, [imageno]);
-
+  //city에 따른 요청
   useEffect(() => {
     async function changeImage() {
       setLoading(true);
@@ -109,7 +102,7 @@ const DomFestivalSlick = ({ CityCode }) => {
           기준 날짜: {new Date().toISOString().slice(0, 10)}
         </h4>
         {loading ? (
-          <div className="text-center">loading...</div>
+          <div className="text-center mb-5 mt-5">loading...</div>
         ) : (
           <Slider {...settings}>
             {festival &&
@@ -130,7 +123,7 @@ const DomFestivalSlick = ({ CityCode }) => {
                       />
 
                       <div>
-                        <div className="festival team card position-relative border-start mb-5">
+                        <div className="festival team card position-relative border-start mb-3">
                           <div className="card-body text-center p-0">
                             <div className="d-flex flex-column justify-content-center bg-white flex-wrap shadow bg-body  ">
                               <h5 className="font-weight-bold fs-2 mb-0">
@@ -141,7 +134,7 @@ const DomFestivalSlick = ({ CityCode }) => {
                               </span>
                               <span className="text-secondary">
                                 <i className="fi fi-sr-marker mx-1 "></i>
-                                {v.addr1} {v.addr2}
+                                {v.addr1}
                               </span>
                               <a
                                 href={`/single/${v.contentid}/${v.contenttypeid}`}

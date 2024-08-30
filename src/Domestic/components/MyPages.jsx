@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import DomMetaTag from "./DomMetaTag";
 import DomNavBar from "./DomNavBar";
-import Styles from "../css/style.css";
 import { useNavigate } from "react-router-dom";
 import DomFooter from "./DomFooter";
 import { Helmet } from "react-helmet-async";
@@ -13,16 +12,6 @@ const MyPages = () => {
   const pageClick = useNavigate();
   useEffect(() => {
     setUserid(localStorage.getItem("user_id"));
-    // axios
-    //   .get("/api/user/item", {
-    //     params: {
-    //       userId: userid,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     setWishlist(response.data);
-    //   })
-    //   .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {

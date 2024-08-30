@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import DomMetaTag from "./DomMetaTag";
-import Styles from "../css/style.css";
-import axios from "axios";
 import { useEffect } from "react";
 
 const DomNavBar = () => {
@@ -83,7 +81,6 @@ const DomNavBar = () => {
                   }
                 }}
               >
-                {/* <h1 className="text-white display-3">Home</h1> */}
                 <div className="input-group w-75">
                   <div className="d-inline-flex">
                     <select
@@ -113,6 +110,21 @@ const DomNavBar = () => {
               </form>
             </div>
             {login === null ? (
+
+              <div className="d-flex gap-1">
+                <Link
+                  to="/Login"
+                  className="btn btn-white py-2 px-2 d-none d-lg-block"
+                >
+                  SIGN IN
+                </Link>
+                <Link
+                  to="/signup"
+                  className="btn btn-White py-2 px-4 d-none d-lg-block"
+                >
+                  SIGN UP
+                </Link>
+              </div>
               <div className="d-flex gap-2">
                 <ul
                   classMenu="subMenu"
@@ -139,6 +151,7 @@ const DomNavBar = () => {
                     SIGNUP
                   </Link>
                 </ul>
+              
               </div>
             ) : (
               <div className="d-flex gap-2">

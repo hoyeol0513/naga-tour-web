@@ -41,12 +41,7 @@ const Login = () => {
           <Helmet>
             <title>당신의 여행 도우미 NAGA | LOGIN</title>
           </Helmet>
-          <div className="sel-lang-wrap">
-            <select className="lang-select">
-              <option>한국어</option>
-              <option>English</option>
-            </select>
-          </div>
+          <div className="sel-lang-wrap"></div>
           <div className="logo-wrap">
             <Link to="/">
               <img src={Logo} />
@@ -78,13 +73,9 @@ const Login = () => {
           <div className="login-button-wrap">
             <button onClick={userLogin}>Sign in</button>
           </div>
-          <div className="login-stay-sign-in">
-            <i className="far fa-check-circle"></i>
-            <span>Stay Signed in</span>
-          </div>
         </section>
 
-        <section className="justify-content-center text-center d-flex">
+        <section className="justify-content-center text-center d-flex mt-5">
           <Link
             to="/forget"
             className="text-secondary pr-2"

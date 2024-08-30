@@ -56,25 +56,6 @@ const DomLodSlick = ({ CityCode }) => {
     changeImage();
   }, [imageno]);
 
-  // useEffect(() => {
-  //   async function changeImage() {
-  //     setLoading(true);
-  //     try {
-  //       const response = await axios.get(
-  //         `https://apis.data.go.kr/B551011/KorService/searchStay?serviceKey=${servicekey}&numOfRows=10&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=C&areaCode=${CityCode}`
-  //       );
-  //       setLod(response.data.response.body.items.item);
-  //       console.log("lod changed", lod);
-  //       console.log(CityCode);
-  //       console.log("--------------------------");
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   changeImage();
-  // }, [CityCode, imageno]);
-
   return (
     <div>
       <DomMetaTag />
@@ -90,7 +71,7 @@ const DomLodSlick = ({ CityCode }) => {
             숙소 정보
           </h1>
           {loading ? (
-            <div className="text-center">loading...</div>
+            <div className="text-center mb-5 mt-5">loading...</div>
           ) : (
             <Slider {...settings}>
               {lod &&
