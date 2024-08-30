@@ -81,7 +81,7 @@ const DomLodSlick = ({ CityCode }) => {
                     v.firstimage && (
                       <div
                         key={index}
-                        className="d-flex flex flex-row text-center justify-content-center"
+                        className="d-flex  text-center justify-content-center pb-5"
                         id="KOTRALEAP"
                       >
                         <img
@@ -91,7 +91,7 @@ const DomLodSlick = ({ CityCode }) => {
                           height="480px"
                           alt="이미지"
                           background-size="cover"
-                          className="lod shadow-lg bg-body rounded"
+                          className="shadow-lg bg-body rounded"
                         />
 
                         <div>
@@ -100,6 +100,7 @@ const DomLodSlick = ({ CityCode }) => {
                               <div
                                 className=" lodText bg-white flex-wrap shadow bg-body rounded d-flex flex-column align-items-center justify-content-center"
                                 style={{
+                                  width: "480px",
                                   height: "480px",
                                 }}
                               >

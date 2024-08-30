@@ -36,61 +36,63 @@ const MyPages = () => {
       <DomMetaTag />
       <DomNavBar />
 
-      <table className="table">
-        <thead>
-          <tr className="text-center table-warning">
-            <td scope="col">타입</td>
-            <td></td>
-            <td scope="col">이름</td>
-            <td scope="col">주소</td>
-            <td scope="col">전화번호</td>
-          </tr>
-        </thead>
-        <tbody>
-          {wishlist.map((data, index) => (
-            <tr
-              style={{ cursor: "pointer" }}
-              className="click"
-              onClick={() => {
-                pageClick(`single/${data.contentid}/${data.contenttypeid}`);
-              }}
-            >
-              <td
-                className="text-center col-1 table-secondary"
-                key={index}
-                style={{ verticalAlign: "middle" }}
-              >
-                <h2 className="text-secondary">
-                  {data.contenttypeid == "12"
-                    ? "관광"
-                    : data.contenttypeid == "14"
-                    ? "문화"
-                    : data.contenttypeid == "15"
-                    ? "축제"
-                    : data.contenttypeid == "32"
-                    ? "숙박"
-                    : "음식"}
-                </h2>
-              </td>
-              <td className="col-1">
-                <img
-                  src={data.img}
-                  style={{ width: "200px", height: "200px" }}
-                />
-              </td>
-              <td className="text-center" style={{ verticalAlign: "middle" }}>
-                <h3>{data.title}</h3>
-              </td>
-              <td className="text-center" style={{ verticalAlign: "middle" }}>
-                {data.addr1}
-              </td>
-              <td className="text-center" style={{ verticalAlign: "middle" }}>
-                {data.tel}
-              </td>
+      <div className="d-flex">
+        <table className="table">
+          <thead>
+            <tr className="text-center table-warning">
+              <td scope="col">타입</td>
+              <td></td>
+              <td scope="col">이름</td>
+              <td scope="col">주소</td>
+              <td scope="col">전화번호</td>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {wishlist.map((data, index) => (
+              <tr
+                style={{ cursor: "pointer" }}
+                className="click"
+                onClick={() => {
+                  pageClick(`single/${data.contentid}/${data.contenttypeid}`);
+                }}
+              >
+                <td
+                  className="text-center col-1 table-secondary"
+                  key={index}
+                  style={{ verticalAlign: "middle" }}
+                >
+                  <h2 className="text-secondary">
+                    {data.contenttypeid == "12"
+                      ? "관광"
+                      : data.contenttypeid == "14"
+                      ? "문화"
+                      : data.contenttypeid == "15"
+                      ? "축제"
+                      : data.contenttypeid == "32"
+                      ? "숙박"
+                      : "음식"}
+                  </h2>
+                </td>
+                <td className="col-1">
+                  <img
+                    src={data.img}
+                    style={{ width: "200px", height: "200px" }}
+                  />
+                </td>
+                <td className="text-center" style={{ verticalAlign: "middle" }}>
+                  <h3>{data.title}</h3>
+                </td>
+                <td className="text-center" style={{ verticalAlign: "middle" }}>
+                  {data.addr1}
+                </td>
+                <td className="text-center" style={{ verticalAlign: "middle" }}>
+                  {data.tel}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <DomFooter />
     </div>
   );
