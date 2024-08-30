@@ -41,16 +41,15 @@ const DomMain = () => {
       <DomNavBar />
 
       <DomFestivalSlick CityCode={cityCode} />
-      <DomLodSlick CityCode={cityCode} />
-      {/* <DomRentSlick CityName={city} /> */}
 
-      {/* 글귀 */}
+      <DomLodSlick CityCode={cityCode} />
+
       <section className="py-5">
         <div className="container px-5 my-2 px-5">
           <div className="text-center mb-4">
             <h1
               className="text-dark font-weight-bold text-center pb-3"
-              id="KOTRALEAP"
+              id="phrase"
             >
               Today's travel phrase
             </h1>
@@ -65,9 +64,7 @@ const DomMain = () => {
           </div>
         </div>
       </section>
-
       <DomFooter />
-
       <a href="#" className="btn btn-lg btn-primary back-to-top">
         <i className="fa fa-angle-double-up"></i>
       </a>
