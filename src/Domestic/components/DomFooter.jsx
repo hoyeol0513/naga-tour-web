@@ -11,29 +11,15 @@ const Footer = () => {
               <div className="col-md-6 mb-5">
                 <h3 className="text-primary mb-4">Get In Touch</h3>
                 <p>
-                  <i className="fa fa-map-marker-alt mr-2"></i>123 Street, New
-                  York, USA
+                  <i className="fa fa-map-marker-alt mr-2"></i>Hwagok 1st
+                  Street, Seoul, Korea
                 </p>
                 <p>
-                  <i className="fa fa-phone-alt mr-2"></i>+012 345 67890
+                  <i className="fa fa-phone-alt mr-2"></i>02-345-6789
                 </p>
                 <p>
-                  <i className="fa fa-envelope mr-2"></i>info@example.com
+                  <i className="fa fa-envelope mr-2"></i>travel_info@naga.co.kr
                 </p>
-                <div className="d-flex justify-content-start mt-4">
-                  <a className="btn btn-outline-light btn-social mr-2" href="/">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a className="btn btn-outline-light btn-social mr-2" href="/">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a className="btn btn-outline-light btn-social mr-2" href="/">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                  <a className="btn btn-outline-light btn-social" href="/">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </div>
               </div>
               <div className="col-md-6 mb-5">
                 <h3 className="text-primary mb-4">Quick Links</h3>
@@ -47,12 +33,6 @@ const Footer = () => {
                   <a className="text-white mb-2" href="/">
                     <i className="fa fa-angle-right mr-2"></i>Our Services
                   </a>
-                  <a className="text-white mb-2" href="/">
-                    <i className="fa fa-angle-right mr-2"></i>Pricing Plan
-                  </a>
-                  <a className="text-white" href="/">
-                    <i className="fa fa-angle-right mr-2"></i>Contact Us
-                  </a>
                 </div>
               </div>
             </div>
@@ -60,9 +40,8 @@ const Footer = () => {
           <div className="col-lg-5 col-md-6 mb-5">
             <h3 className="text-primary mb-4">Newsletter</h3>
             <p>
-              Rebum labore lorem dolores kasd est, et ipsum amet et at kasd,
-              ipsum sea tempor magna tempor. Accu kasd sed ea duo ipsum. Dolor
-              duo eirmod sea justo no lorem est diam
+              If you have any problmes, contact us with email, which mentioned
+              in Get In Touch.
             </p>
             <div className="w-100">
               <div className="input-group">
@@ -70,50 +49,13 @@ const Footer = () => {
                   type="text"
                   className="form-control border-light"
                   style={{ padding: "30px" }}
-                  placeholder="Your Email Address"
+                  placeholder="Write down your problem."
                 />
                 <div className="input-group-append">
-                  <button className="btn btn-primary px-4">Sign Up</button>
+                  <button className="btn btn-primary px-4">Send</button>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
-        style={{ borderColor: "#3E3E4E" }}
-      >
-        <div className="row">
-          <div className="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-            <p className="m-0 text-white">
-              &copy; <Link to="/">Your Site Name</Link>. All Rights Reserved.
-              <a href="https://htmlcodex.com">HTML Codex</a>
-            </p>
-          </div>
-          <div className="col-lg-6 text-center text-md-right">
-            <ul className="nav d-inline-flex">
-              <li className="nav-item">
-                <a className="nav-link text-white py-0" href="/">
-                  Privacy
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white py-0" href="/">
-                  Terms
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white py-0" href="/">
-                  FAQs
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white py-0" href="/">
-                  Help
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
